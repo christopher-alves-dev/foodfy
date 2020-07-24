@@ -39,7 +39,6 @@ header .container .logo a {
 }
 
 header .container .nav {
-  display: none;
   position: absolute;
   width: 100%;
   top: 98.97px;
@@ -60,8 +59,9 @@ header .container .nav-active {
   left: 0;
 }
 
-header .container .menuButton i {
+header .container .material-icons {
   font-size: 30px;
+  cursor: pointer;
 }
 
 header .container .hide {
@@ -69,26 +69,30 @@ header .container .hide {
 }
 
 @media screen and (min-width: 480px) {
-  
   header .container .logo {
-    flex: 0.5;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  header .container .nav {
+    position: static;
+    background-color: white;
+    text-align: left;
   }
 
-  header .container nav {
-    display: block;
-    margin-right: auto;
+  header .container .nav a {
+    display: inline-block;
+    border-bottom: none;
+    padding: 0 15px; 
   }
 
-  header .container .menuButton {
+  .openMenuButton, 
+  .closeMenuButton {
     display: none;
   }
 }
 
-@media screen and (min-width: 768px) {
-  header .container .logo {
-    flex: 0.3;
-  }
-}
 /* === HEADER === */
 
 /* === BANNER === */
@@ -123,12 +127,16 @@ header .container .hide {
 .banner .container .bannerImg {
   height: 50%;
   width: 40%;
-  max-width: 140px;
+  max-width: 114px;
 }
 
 .banner .container .bannerImg img {
   display: block;
   width: 100%;
+}
+
+@media screen and (min-width: 340px) {
+
 }
 
 @media screen and (min-width: 480px) {
@@ -203,6 +211,7 @@ main .container .recipes .recipeCard:hover {
 main .container .recipes .recipeCard .cardImg {
   width: 100%;
   height: 70%;
+  max-height: 89.36px;
 }
 
 main .container .recipes .recipeCard .cardImg img {
