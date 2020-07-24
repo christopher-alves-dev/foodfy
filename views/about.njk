@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>FoodFy - As melhores receitas </title>
+{% endblock %}
+
+{% block content %}
+  <section class="banner">
+    <div class="container">
+      <div class="bannerContent">
+        <h3>As melhores receitas</h3>
+        <p>Aprenda a construir os melhores pratos
+          com receitas criadas por profissionais
+          do mundo inteiro.</p>
+      </div>
+
+      <div class="bannerImg">
+        <img src="/img/bannerImg.png" alt="Chef's Cartoon">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <h4>Mais acessadas</h4>
+
+      <div class="recipes">
+        {% for recipe in recipes %}
+          <div class="recipeCard" id="{{recipes.indexOf(recipe)}}">
+            <div class="cardImg">
+              <img src="{{recipe.image}}" alt="{{recipe.title}}">
+            </div>
+            <div class="cardContent">
+              <p>{{recipe.title}} <br> <span>{{recipe.author}}</span></p>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </main>
+{% endblock %}
