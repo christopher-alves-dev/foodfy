@@ -3,62 +3,81 @@
 {% block head %}
   <title>Receita do {{recipe.title}}</title>
   <link rel="stylesheet" href="/css/adminStyle.css">
-
 {% endblock %}
 
 {% block adminContent %}
-<div class="recipe adminRecipe">
-  <div class="container">
-    <div class="editRecipe">
-      <h2>Receita: {{recipe.title}}</h2>
-      
-      <a href="/admin/{{recipes.id}}/edit">Editar receita</a>
-    </div>
+  <div class="recipe adminRecipe">
+    <div class="container">
+      <div class="editRecipe">
+        <h2>Receita: {{recipe.title}}</h2>
+        
+        <div class="buttons">
+          <a id="deleteButton" href="/admin/{{recipes.id}}/edit">
+            <span class="material-icons"> delete</span>
+          </a>
 
-    <div class="recipeBanner">
-      <div class="foodImg " style="background: url({{recipe.image}}) no-repeat center / cover">
-      </div>
-
-      <div class="title">
-        <p>{{recipe.title}} <br> <span>por {{recipe.author}}</span></p>
-      </div>
-    </div>
-
-    <div class="recipeContent">
-      <div class="recipeInfo">
-        <div class="recipeInfoTitle">
-          <h3>Ingredientes</h3>
-          <a class="button">esconder</a>
+          <a id="editButton" href="/admin/{{recipes.id}}/edit">
+            <span class="material-icons"> create </span> 
+          </a>
         </div>
-        <ul class="content show">
-          {% for dishe in recipe.ingredients %}
-            <li>{{dishe}}</li>
-          {% endfor %}
-        </ul>
       </div>
 
-      <div class="recipeInfo">
-        <div class="recipeInfoTitle">
-          <h3>Modo de preparo</h3>
-          <a class="button">esconder</a>
-        </div>
-        <ul class="content show">
-          {% for dishe in recipe.preparation %}
-            <li>{{dishe}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="recipeInfo">
-        <div class="recipeInfoTitle">
-          <h3>Informações adicionais</h3>
-          <a class="button">esconder</a>
+      <div class="recipeBanner">
+        <div class="foodImg " style="background: url({{recipe.image}}) no-repeat center / cover">
         </div>
 
-        <p class="content show">{{recipe.information}}</p>
+        <div class="title">
+          <p>{{recipe.title}} <br> <span>por {{recipe.author}}</span></p>
+        </div>
+      </div>
+
+      <div class="recipeContent">
+        <div class="recipeInfo">
+          <div class="recipeInfoTitle">
+            <h3>Ingredientes</h3>
+            <a class="button">esconder</a>
+          </div>
+          <ul class="content show">
+            {% for dishe in recipe.ingredients %}
+              <li>{{dishe}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="recipeInfo">
+          <div class="recipeInfoTitle">
+            <h3>Modo de preparo</h3>
+            <a class="button">esconder</a>
+          </div>
+          <ul class="content show">
+            {% for dishe in recipe.preparation %}
+              <li>{{dishe}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="recipeInfo">
+          <div class="recipeInfoTitle">
+            <h3>Informações adicionais</h3>
+            <a class="button">esconder</a>
+          </div>
+
+          <p class="content show">{{recipe.information}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+{% endblock %}
 
+{% block scripts %}
+  <script>
+    const deleteButton = document.querySelector('#deleteButton');
+    const saveButton = document.querySelector('#editButton');
+    
+    if (window.innerWidth > 480) {
+      deleteButton.innerHTML = 'Deletar';
+      editButton.innerHTML = 'Editar';
+    }
+
+  </script>
 {% endblock %}

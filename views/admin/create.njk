@@ -7,5 +7,16 @@
 {% endblock %}
 
 {% block adminContent %}
-  {% include "admin/fields.njk" %}
+  <section class="recipesList adminRecipe">
+    <div class="formRecipe">
+      <fieldset>
+        <legend>Criando receita
+          <a type="submit" href="/admin/recipe/{{recipes.id}}">Salvar receita</a>
+        </legend>
+        
+        {% include "admin/fields.njk" %}
+
+      </fieldset>
+    </div>
+  </section>
 {% endblock%}

@@ -39,7 +39,7 @@ exports.index = function(req, res) {
 
 exports.create = function(req, res ) {
   //TODO: PÁGINA CREATE. 
-  return res.render("admin/create")
+  return res.render("admin/create", { recipes: data.recipes })
 }
 
 exports.showAdmin = function(req, res ) {
@@ -64,6 +64,8 @@ exports.showAdmin = function(req, res ) {
 
 exports.edit = function(req, res ) {
   
+
+  return res.render("admin/edit", { recipes: data.recipes })
 }
 
 exports.post = function(req, res ) {
@@ -73,7 +75,6 @@ exports.post = function(req, res ) {
 exports.put = function(req, res ) {
   
 }
-
 
 exports.delete = function(req, res ) {
   

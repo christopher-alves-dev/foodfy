@@ -46,3 +46,9 @@ for(let [i, button] of buttons.entries()) {
     }
   });
 };
+
+// ===================================
+const editButton = document.querySelector('#editButton');
+const saveButton = document.querySelector('#saveButton');
+console.log(editButton)
+console.log(saveButton)
