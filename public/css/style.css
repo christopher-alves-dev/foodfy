@@ -4,8 +4,8 @@
 :root {
   --primary-txt-color: #111111;
   --secondary-txt-color: #777777;
+  --primary-color: #f8c0b8;
 }
-
 
 * {
   margin: 0;
@@ -44,7 +44,7 @@ header .container .nav {
   top: 98.97px;
   left: -600px;
   text-align: center;
-  background-color: #FBDFDB;
+  background-color: var(--primary-color);
   transition: ease-in .4s;
 }
 
@@ -67,6 +67,11 @@ header .container .material-icons {
 header .container .hide {
   display: none;
 }
+
+/* admin style */
+
+
+
 
 @media screen and (min-width: 480px) {
   header .container .logo {
@@ -100,7 +105,7 @@ header .container .hide {
 .banner .container{
   display: flex;
   flex-direction: column;
-  background-color: #FBDFDB;
+  background-color: var(--primary-color);
   padding: 30px 30px 0 30px;
   margin: 0 auto;
   align-items: center;
@@ -198,7 +203,6 @@ main .container .recipes .recipeCard {
   -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
   transition: .3s;
-  cursor: pointer;
 }
 
 main .container .recipes .recipeCard:hover {
@@ -221,6 +225,9 @@ main .container .recipes .recipeCard .cardImg img {
 }
 
 main .container .recipes .recipeCard .cardContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 10px;
   font-weight: bold;
 }
@@ -229,6 +236,16 @@ main .container .recipes .recipeCard .cardContent span {
   font-size: 12px;
   font-weight: normal;
   color: var(--secondary-txt-color);
+}
+
+main .container .recipes .recipeCard .cardContent a {
+  font-size: 12px;
+  color: white;
+  background-color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {

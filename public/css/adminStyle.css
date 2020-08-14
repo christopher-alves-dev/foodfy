@@ -1,0 +1,140 @@
+:root {
+  --admin-color: #6558C3;
+}
+
+/* ADMIN RECIPES LIST */
+.adminHeader {
+  background-color: var(--admin-color);
+}
+
+.recipesList {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.recipesList h4 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: minmax(auto, 300px);
+  align-items: center;
+  gap: 24px;
+}
+
+.cards .card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.cardImg {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.cardContent {
+  padding: 16px;
+}
+
+.cardContent p {
+  font-size: 12px;
+  color: var(--primary-txt-color);
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.cardContent span {
+  font-size: 12px;
+  color: var(--secondary-txt-color);
+}
+
+.cardContent a {
+  font-size: 12px;
+  color: var(--admin-color);
+  font-weight: bold;
+  border: 1px solid var(--admin-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: .4s ease-in-out;
+}
+.cardContent a:hover {
+  background-color: var(--admin-color);
+  color: white;
+}
+
+@media (min-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cards .card {
+    max-width: 450px;
+    grid-template-columns: minmax(auto, 172px) 1fr;
+    grid-template-rows: 90px;
+    gap: 20px;
+  }
+
+  .cardContent {
+    padding: 0;
+  }
+
+  .cardContent p {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ADMIN INDIVIDUAL RECIPE PAGE */
+.adminRecipe .editRecipe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.adminRecipe .editRecipe h2 {
+  font-size: 16px;
+}
+
+.adminRecipe .editRecipe a {
+  font-size: 12px;
+  color: white;
+  background-color: var(--admin-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.adminRecipe li,
+.adminRecipe .recipeContent .recipeInfo p {
+  color: #444444;
+}
+
+@media (min-width: 768px) {
+  .adminRecipe .editRecipe h2 {
+    font-size: 24px;
+  }
+
+  .adminRecipe .editRecipe a {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}

@@ -6,34 +6,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-
+  <link rel="stylesheet" href="/css/style.css">
+  
   {% block head %}
     <title>FoodFy</title>
   {% endblock %}
   
 </head>
 <body>
-  <header>
+  <header class="adminHeader">
     <div class="container">
       <div class="logo">
-        <h1><a href="/"><img src="/img/logo.png" alt="Foodfy logo"></a></h1>
-      </div>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/history">Sobre</a>
-        <a href="/recipesList">Receitas</a>
-      </nav>
-      <div class="openMenuButton">
-        <i class="material-icons">menu</i>
-      </div>
-      <div class="closeMenuButton hide">
-        <i class="material-icons">close</i>
+        <h1>
+          <a href="/admin/recipes">
+            <img src="/img/logo-white.png" alt="Foodfy logo">
+          </a>
+        </h1>
       </div>
     </div>
   </header>
 
-  {% block content %}
+  {% block adminContent %}
   {% endblock %}
 
 
@@ -43,6 +36,5 @@
     </div>
   </footer>
 
-  <script src="/js/script.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 {% block head %}
   <title>FoodFy - As melhores receitas </title>
+  <link rel="stylesheet" href="/css/style.css">
 {% endblock %}
 
 {% block content %}
@@ -26,14 +27,7 @@
 
       <div class="recipes">
         {% for recipe in recipes %}
-          <div class="recipeCard" id="{{recipes.indexOf(recipe)}}">
-            <div class="cardImg">
-              <img src="{{recipe.image}}" alt="{{recipe.title}}">
-            </div>
-            <div class="cardContent">
-              <p>{{recipe.title}} <br> <span>{{recipe.author}}</span></p>
-            </div>
-          </div>
+          {% include 'recipeCard.njk' %}
         {% endfor %}
 
       </div>

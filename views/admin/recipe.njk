@@ -1,18 +1,26 @@
-{% extends "layout.njk" %}
+{% extends "admin/adminLayout.njk" %}
 
 {% block head %}
-  <title>Receita do {{recipe.title}}</title>
+  <title>Receita do {{recipes.title}}</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+
 {% endblock %}
 
-{% block content %}
-<div class="recipe">
+{% block adminContent %}
+<div class="recipe adminRecipe">
   <div class="container">
+    <div class="editRecipe">
+      <h2>Receita: {{recipes.title}}</h2>
+      
+      <a href="/admin/{{recipes.id}}/edit">Editar receita</a>
+    </div>
+
     <div class="recipeBanner">
-      <div class="foodImg " style="background: url({{recipe.image}}) no-repeat center / cover">
+      <div class="foodImg " style="background: url({{recipes.image}}) no-repeat center / cover">
       </div>
 
       <div class="title">
-        <p>{{recipe.title}} <br> <span>{{recipe.author}}</span></p>
+        <p>{{recipes.title}} <br> <span>por {{recipes.author}}</span></p>
       </div>
     </div>
 
@@ -23,8 +31,8 @@
           <a class="button">esconder</a>
         </div>
         <ul class="content show">
-          {% for dishe in recipe.ingredients %}
-            <li>{{dishe}}</li>
+          {% for recipe in recipes.ingredients %}
+            <li>{{recipe}}</li>
           {% endfor %}
         </ul>
       </div>
@@ -35,8 +43,8 @@
           <a class="button">esconder</a>
         </div>
         <ul class="content show">
-          {% for dishe in recipe.preparation %}
-            <li>{{dishe}}</li>
+          {% for recipe in recipes.preparation %}
+            <li>{{recipe}}</li>
           {% endfor %}
         </ul>
       </div>
@@ -47,7 +55,7 @@
           <a class="button">esconder</a>
         </div>
 
-        <p class="content show">{{recipe.information}}</p>
+        <p class="content show">{{recipes.information}}</p>
       </div>
     </div>
   </div>
