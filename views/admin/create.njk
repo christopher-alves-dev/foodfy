@@ -4,15 +4,14 @@
   <title>Foodfy Admin - Criando receita</title>
   <link rel="stylesheet" href="/css/adminStyle.css">
   <link rel="stylesheet" href="/css/partials/form.css">
+  <link rel="stylesheet" href="/css/partials/components.css">
 {% endblock %}
 
 {% block adminContent %}
   <section class="recipesList adminRecipe">
     <div class="formRecipe">
       <fieldset>
-        <legend>Criando receita
-          <a type="submit" href="/admin/recipe/{{recipes.id}}">Salvar receita</a>
-        </legend>
+        <legend>Criando receita </legend>
         
         {% include "admin/fields.njk" %}
 

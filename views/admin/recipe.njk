@@ -3,6 +3,7 @@
 {% block head %}
   <title>Receita do {{recipe.title}}</title>
   <link rel="stylesheet" href="/css/adminStyle.css">
+  <link rel="stylesheet" href="/css/partials/components.css">
 {% endblock %}
 
 {% block adminContent %}
@@ -12,11 +13,11 @@
         <h2>Receita: {{recipe.title}}</h2>
         
         <div class="buttons">
-          <a id="deleteButton" href="/admin/{{recipes.id}}/edit">
+          <button class="btn" id="deleteButton" type="submit">
             <span class="material-icons"> delete</span>
-          </a>
+          </button>
 
-          <a id="editButton" href="/admin/{{recipes.id}}/edit">
+          <a class="btn" type="button" id="editButton" href="/admin/recipes/{{recipe.id}}/edit">
             <span class="material-icons"> create </span> 
           </a>
         </div>

@@ -1,24 +1,38 @@
 
-<form action="">
+<form id="createRecipe" action="/admin/recipes" method="POST">
   <div class="inputBlock">
     <label for="image">Imagem da receita</label>
     <input type="url" name="image" id="image">
   </div>
 
   <div class="inputBlock">
-    <label for="ingredients">Ingredientes</label>
-    <input type="text" name="ingredients" id="ingredients">
-    <a href="">Adicionar novo ingrediente</a>
+    <label for="title">Nome da receita</label>
+    <input type="text" name="title" id="title">
   </div>
 
   <div class="inputBlock">
-    <label for="prepare">Modo de preparo</label>
-    <input type="text" name="prepare" id="prepare">
-    <a href="">Adicionar novo passo</a>
+    <label for="name">Nome do criador</label>
+    <input type="text" name="name" id="name">
+  </div>
+
+  <div class="inputBlock">
+    <label for="ingredients">Ingredientes</label>
+    <input type="text" name="ingredients" id="ingredients">
+    <button type="button" id="addIngredient" href="">Adicionar novo ingrediente</button>
+  </div>
+
+  <div class="inputBlock">
+    <label for="preparation">Modo de preparo</label>
+    <input type="text" name="preparation" id="preparation">
+    <button type="button" id="addPreparation" href="">Adicionar novo passo</button>
   </div>
 
   <div class="textAreaBlock">
     <label for="textArea">Informações adicionais</label>
-    <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
+    <textarea name="textArea" id="textArea"></textarea>
+  </div>
+
+  <div class="btnContainer">
+    <button class="btn" type="submit">Salvar receita</button>
   </div>
 </form>
