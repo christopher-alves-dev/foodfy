@@ -4,7 +4,7 @@
       "id": 1,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
       "title": "Triplo bacon burger",
-      "author": "Jorge Relato",
+      "name": "Jorge Relato",
       "ingredients": [
         "3 kg de carne moída (escolha uma carne magra e macia);",
         "300 g de bacon moído;",
@@ -28,7 +28,7 @@
       "id": 2,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png",
       "title": "Pizza 4 estações",
-      "author": "Fabiana Melo",
+      "name": "Fabiana Melo",
       "ingredients": [
         "1 xícara (chá) de leite;",
         "1 ovo;",
@@ -56,7 +56,7 @@
       "id": 3,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/asinha.png",
       "title": "Asinhas de frango ao barbecue",
-      "author": "Vania Steroski",
+      "name": "Vania Steroski",
       "ingredients": [
         "12 encontros de asinha de galinha, temperados a gosto",
         "2 colheres de sopa de farinha de trigo",
@@ -74,7 +74,7 @@
       "id": 4,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png",
       "title": "Lasanha mac n' cheese",
-      "author": "Juliano Vieira",
+      "name": "Juliano Vieira",
       "ingredients": [
         "massa pronta de lasanha;",
         "400 g de presunto;",
@@ -95,7 +95,7 @@
       "id": 5,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/macarrao.png",
       "title": "Espaguete ao alho",
-      "author": "Júlia Kinoto",
+      "name": "Júlia Kinoto",
       "ingredients": [
         "1 pacote de macarrão 500 g (tipo do macarrão a gosto);",
         "1 saquinho de alho granulado;",
@@ -120,7 +120,7 @@
       "id": 6,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/doce.png",
       "title": "Docinhos pão-do-céu",
-      "author": "Ricardo Golvea",
+      "name": "Ricardo Golvea",
       "ingredients": [
         "1 kg de batata - doce;",
         "100 g de manteiga;",

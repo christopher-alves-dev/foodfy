@@ -163,16 +163,6 @@
   color: #444444;
 }
 
-#createRecipe .btnContainer {
-  width: 100%;
-  max-width: 340px;
-  margin: 25px auto 0 auto;
-}
-
-#createRecipe .btnContainer button {
-  width: 100%;
-}
-
 @media (min-width: 768px) {
   .adminRecipe .editRecipe h2 {
     font-size: 24px;

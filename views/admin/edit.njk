@@ -4,18 +4,24 @@
   <title>Foodfy Admin - Criando receita</title>
   <link rel="stylesheet" href="/css/adminStyle.css">
   <link rel="stylesheet" href="/css/partials/form.css">
+  <link rel="stylesheet" href="/css/partials/components.css">
 {% endblock %}
 
 {% block adminContent %}
   <section class="recipesList adminRecipe">
     <div class="formRecipe">
       <fieldset>
-        <legend>Criando receita
-          <button type="submit" href="/admin/recipe/{{recipe.id}}">Salvar receita</button>
-        </legend>
+        <legend>Editando receita</legend>
         
         {% include "admin/fields.njk" %}
 
+        <div class="btnContainer">
+          <button class="btn" id="deleteButton" type="submit">
+            Deletar receita
+          </button>
+
+          <button form="createRecipe" class="btn" type="submit">Salvar receita</button>
+        </div>
       </fieldset>
     </div>
   </section>

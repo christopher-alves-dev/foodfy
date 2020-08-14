@@ -54,7 +54,7 @@ exports.post = function(req, res ) {
     }
   }
 
-  let { image, title, name, ingredients, preparation, textArea } = req.body
+  let { image, title, name, ingredients, preparation, information } = req.body
 
   const id = Number(data.recipes.length + 1);
 
@@ -65,7 +65,7 @@ exports.post = function(req, res ) {
     name,
     ingredients, 
     preparation, 
-    textArea
+    information
   })
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {

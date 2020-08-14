@@ -2,37 +2,34 @@
 <form id="createRecipe" action="/admin/recipes" method="POST">
   <div class="inputBlock">
     <label for="image">Imagem da receita</label>
-    <input type="url" name="image" id="image">
+    <input type="url" name="image" id="image" value="{{recipe.image}}">
   </div>
 
   <div class="inputBlock">
     <label for="title">Nome da receita</label>
-    <input type="text" name="title" id="title">
+    <input type="text" name="title" id="title" value="{{recipe.title}}">
   </div>
 
   <div class="inputBlock">
     <label for="name">Nome do criador</label>
-    <input type="text" name="name" id="name">
+    <input type="text" name="name" id="name" value="{{recipe.name}}">
   </div>
 
   <div class="inputBlock">
     <label for="ingredients">Ingredientes</label>
-    <input type="text" name="ingredients" id="ingredients">
+    <input type="text" name="ingredients" id="ingredients" value="{{recipe.ingredients}}">
     <button type="button" id="addIngredient" href="">Adicionar novo ingrediente</button>
   </div>
 
   <div class="inputBlock">
     <label for="preparation">Modo de preparo</label>
-    <input type="text" name="preparation" id="preparation">
+    <input type="text" name="preparation" id="preparation" value="{{recipe.preparation}}">
     <button type="button" id="addPreparation" href="">Adicionar novo passo</button>
   </div>
 
   <div class="textAreaBlock">
-    <label for="textArea">Informações adicionais</label>
-    <textarea name="textArea" id="textArea"></textarea>
+    <label for="information">Informações adicionais</label>
+    <textarea name="information" id="information" value="{{recipe.information}}"></textarea>
   </div>
 
-  <div class="btnContainer">
-    <button class="btn" type="submit">Salvar receita</button>
-  </div>
 </form>

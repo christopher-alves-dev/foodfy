@@ -9,12 +9,14 @@
 
 {% block adminContent %}
   <section class="recipesList adminRecipe">
-    <div class="formRecipe">
+    <div class="formRecipe createPage">
       <fieldset>
         <legend>Criando receita </legend>
         
         {% include "admin/fields.njk" %}
-
+        <div class="btnContainer">
+          <button form="createRecipe" class="btn" type="submit">Salvar receita</button>
+        </div>
       </fieldset>
     </div>
   </section>
