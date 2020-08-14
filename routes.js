@@ -12,7 +12,7 @@ routes.get("/history", dishes.history )
 
 routes.get("/admin/recipes", dishes.index); // Mostrar a lista de receitas
 routes.get("/admin/recipes/create", dishes.create); // Mostrar formulário de nova receita
-routes.get("/admin/recipes/:id", dishes.show); // Exibir detalhes de uma receita
+routes.get("/admin/recipes/:id", dishes.showAdmin); // Exibir detalhes de uma receita
 routes.get("/admin/recipes/:id/edit", dishes.edit); // Mostrar formulário de edição de receita
 
 routes.post("/admin/recipes", dishes.post); // Cadastrar nova receita

@@ -1,1 +1,11 @@
 {% extends "admin/adminLayout.njk" %}
+
+{% block head %}
+  <title>Foodfy Admin - Criando receita</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+  <link rel="stylesheet" href="/css/partials/form.css">
+{% endblock %}
+
+{% block adminContent %}
+  {% include "admin/fields.njk" %}
+{% endblock%}

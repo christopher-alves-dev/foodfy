@@ -63,8 +63,7 @@ legend a {
   }
 
   legend a {
-    font-size: 16px;
-    padding: 10px 20px;
+    padding: 8px 16px;
   }
 
   .inputBlock label,
@@ -80,6 +79,5 @@ legend a {
   .textAreaBlock textarea {
     font-size: 16px;
   }
-
 }
 
