@@ -12,17 +12,24 @@
     <div class="formRecipe">
       <fieldset>
         <legend>Editando receita</legend>
-        
-        {% include "admin/fields.njk" %}
+        <form class="fields" action="/admin/recipes?_method=PUT" method="POST">
 
-        <div class="btnContainer">
-          <button class="btn" id="deleteButton" type="submit">
-            Deletar receita
-          </button>
+          {% include "admin/fields.njk" %}
 
-          <button form="createRecipe" class="btn" type="submit">Salvar receita</button>
-        </div>
+          <input type="hidden" name="id" value="{{recipe.id}}">
+
+
+          <button class="btn" type="submit">Salvar receita</button>
+        </form>
+
+        <form action="/admin/recipes?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value="{{recipe.id}}">
+          <button class="btn" id="deleteButton" type="submit">Deletar receita</button>
+        </form>
       </fieldset>
     </div>
   </section>
 {% endblock%}
+
+{% block scripts %}
+{% endblock %}

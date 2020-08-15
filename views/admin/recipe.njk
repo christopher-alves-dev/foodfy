@@ -13,12 +13,7 @@
         <h2>Receita: {{recipe.title}}</h2>
         
         <div class="buttons">
-          <button class="btn" id="deleteButton" type="submit">
-            <span class="material-icons"> delete</span>
-          </button>
-
-          <a class="btn" type="button" id="editButton" href="/admin/recipes/{{recipe.id}}/edit">
-            <span class="material-icons"> create </span> 
+          <a class="btn" type="button" id="editButton" href="/admin/recipes/{{recipe.id}}/edit"> Editar
           </a>
         </div>
       </div>
@@ -28,7 +23,7 @@
         </div>
 
         <div class="title">
-          <p>{{recipe.title}} <br> <span>por {{recipe.author}}</span></p>
+          <p>{{recipe.title}} <br> <span>por {{recipe.name}}</span></p>
         </div>
       </div>
 

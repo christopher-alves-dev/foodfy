@@ -1,5 +1,4 @@
 
-<form id="createRecipe" action="/admin/recipes" method="POST">
   <div class="inputBlock">
     <label for="image">Imagem da receita</label>
     <input type="url" name="image" id="image" value="{{recipe.image}}">
@@ -13,12 +12,14 @@
   <div class="inputBlock">
     <label for="name">Nome do criador</label>
     <input type="text" name="name" id="name" value="{{recipe.name}}">
-  </div>
+  </div>  
 
-  <div class="inputBlock">
-    <label for="ingredients">Ingredientes</label>
-    <input type="text" name="ingredients" id="ingredients" value="{{recipe.ingredients}}">
-    <button type="button" id="addIngredient" href="">Adicionar novo ingrediente</button>
+  <div class="inputBlock" id="ingredients">
+    <label>Ingredientes</label>
+    <div class="ingredient">
+      <input type="text" name="ingredients[]" value="{{recipe.ingredients}}" placeholder="Insira novo ingrediente">
+    </div>
+    <button type="button" class="addIngredient" href="">Adicionar novo ingrediente</button>
   </div>
 
   <div class="inputBlock">
@@ -29,7 +30,28 @@
 
   <div class="textAreaBlock">
     <label for="information">Informações adicionais</label>
-    <textarea name="information" id="information" value="{{recipe.information}}"></textarea>
+    <textarea name="information" id="information">{{recipe.information}}</textarea>
   </div>
 
-</form>
+{% block scripts %}
+  <script>
+    function addIngredient() {
+      const ingredients = document.querySelector("#ingredients");
+      const fieldContainer = document.querySelectorAll(".ingredient");
+
+      // Realiza um clone do último ingrediente adicionado
+      const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+      // Não adiciona um novo input se o último tem um valor vazio
+      if (newField.children[0].value == "") return false;
+
+      // Deixa o valor do input vazio
+      newField.children[0].value = "";
+      ingredients.appendChild(newField);
+    }
+
+    document
+      .querySelector(".addIngredient")
+      .addEventListener("click", addIngredient);
+  </script>
+{% endblock %}

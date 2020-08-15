@@ -10,6 +10,11 @@ legend {
   margin-bottom: 25px;
 }
 
+.fields {
+  display: flex;
+  flex-direction: column;
+}
+
 .inputBlock label,
 .textAreaBlock label {
   font-size: 14px;
@@ -40,12 +45,30 @@ legend {
   margin-top: 15px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
 }
 
 .textAreaBlock textarea {
   padding: 12px 16px;
   min-height: 200px;
   resize: vertical;
+}
+
+.fields .btn {
+  width: 100%;
+  max-width: 300px;
+  align-self: center;
+  margin: 20px 0;
+}
+
+form + form  {
+  text-align: center;
+}
+
+form + form .btn {
+  width: 100%;
+  max-width: 300px;
+  background-color: lightcoral;
 }
 
 @media (min-width: 768px) {
@@ -67,37 +90,17 @@ legend {
     font-size: 16px;
   }
 
-  .createPage .btnContainer {
-    justify-content: center;
+  .fields .btn {
+    max-width: 400px;
+  }
+
+  form + form .btn {
+    max-width: 400px;
   }
 }
 
 
 /* ====== EDIT FORM ====== */
 
-.btnContainer #deleteButton {
-  background-color: lightcoral;
-  margin: 25px 0;
-}
 
-.btnContainer .btn {
-  width: 100%;
-}
 
-@media (min-width: 768px){
-  .btnContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .btnContainer .btn {
-    width: 45%;
-    margin-top: 25px;
-  }
-
-  .btnContainer #deleteButton {
-    margin-bottom: 0;
-  }
-}
