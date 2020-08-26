@@ -1,4 +1,3 @@
-
   <div class="inputBlock">
     <label for="image">Imagem da receita</label>
     <input type="url" name="image" id="image" value="{{recipe.image}}">
@@ -14,44 +13,23 @@
     <input type="text" name="name" id="name" value="{{recipe.name}}">
   </div>  
 
-  <div class="inputBlock" id="ingredients">
+  <div class="inputBlock" id="recipeItems">
     <label>Ingredientes</label>
-    <div class="ingredient">
-      <input type="text" name="ingredients[]" value="{{recipe.ingredients}}" placeholder="Insira novo ingrediente">
+    <div class="fieldContainer">
+      <input type="text" name="ingredients[]" class="fieldInput" value="{{recipe.ingredients}}" placeholder="Insira novo ingrediente">
     </div>
-    <button type="button" class="addIngredient" href="">Adicionar novo ingrediente</button>
+    <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
   </div>
 
-  <div class="inputBlock">
+  <div class="inputBlock" id="recipeItems">
     <label for="preparation">Modo de preparo</label>
-    <input type="text" name="preparation" id="preparation" value="{{recipe.preparation}}">
-    <button type="button" id="addPreparation" href="">Adicionar novo passo</button>
+    <div class="fieldContainer">
+      <input type="text" name="preparation" class="fieldInput" value="{{recipe.preparation}}" placeholder="Insira novo passo">
+    </div>
+    <button type="button" id="addField" href="">Adicionar novo passo</button>
   </div>
 
   <div class="textAreaBlock">
     <label for="information">Informações adicionais</label>
     <textarea name="information" id="information">{{recipe.information}}</textarea>
   </div>
-
-{% block scripts %}
-  <script>
-    function addIngredient() {
-      const ingredients = document.querySelector("#ingredients");
-      const fieldContainer = document.querySelectorAll(".ingredient");
-
-      // Realiza um clone do último ingrediente adicionado
-      const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
-
-      // Não adiciona um novo input se o último tem um valor vazio
-      if (newField.children[0].value == "") return false;
-
-      // Deixa o valor do input vazio
-      newField.children[0].value = "";
-      ingredients.appendChild(newField);
-    }
-
-    document
-      .querySelector(".addIngredient")
-      .addEventListener("click", addIngredient);
-  </script>
-{% endblock %}

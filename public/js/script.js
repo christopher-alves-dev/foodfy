@@ -2,17 +2,21 @@ const openMenuBtn = document.querySelector('.openMenuButton');
 const closeMenuBtn = document.querySelector('.closeMenuButton');
 const mobileMenu = document.querySelector('.nav');
 
-openMenuBtn.addEventListener('click', function() {
-  mobileMenu.classList.toggle('nav-active');
-  openMenuBtn.classList.toggle('hide');
-  closeMenuBtn.classList.toggle('hide');
-})
+if(openMenuBtn) {
+  
+  openMenuBtn.addEventListener('click', function() {
+    mobileMenu.classList.toggle('nav-active');
+    openMenuBtn.classList.toggle('hide');
+    closeMenuBtn.classList.toggle('hide');
+  })
 
-closeMenuBtn.addEventListener('click', function() {
-  mobileMenu.classList.toggle('nav-active');
-  openMenuBtn.classList.toggle('hide');
-  closeMenuBtn.classList.toggle('hide');
-})
+  closeMenuBtn.addEventListener('click', function() {
+    mobileMenu.classList.toggle('nav-active');
+    openMenuBtn.classList.toggle('hide');
+    closeMenuBtn.classList.toggle('hide');
+  })
+}
+
 
 // ================================
 
@@ -50,3 +54,20 @@ for(let [i, button] of buttons.entries()) {
 // ===================================
 
 // === Add Field ===
+const buttonsAdd = document.querySelectorAll('#addField');
+
+if(buttonsAdd) {
+  buttonsAdd.forEach(btn => btn.addEventListener('click', cloneField => {
+
+    const field = cloneField.target.parentNode;
+    const fieldContainer = field.querySelector('.fieldContainer');
+    const fieldItems = field.querySelectorAll('.fieldInput');
+    const newFieldItem = fieldItems[fieldItems.length - 1].cloneNode(true);
+
+    if(newFieldItem.value == '') return false;
+
+    newFieldItem.value = '';
+
+    return fieldContainer.appendChild(newFieldItem);
+  }))
+}
