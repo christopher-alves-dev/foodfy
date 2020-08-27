@@ -10,20 +10,20 @@
   <div class="recipe adminRecipe">
     <div class="container">
       <div class="editRecipe">
-        <h2>Receita: {{recipe.title}}</h2>
+        <h2>Receita: {{dish.title}}</h2>
         
         <div class="buttons">
-          <a class="btn" type="button" id="editButton" href="/admin/recipes/{{recipe.id}}/edit"> Editar
+          <a class="btn" type="button" id="editButton" href="/admin/recipes/{{dish.id}}/edit"> Editar
           </a>
         </div>
       </div>
 
       <div class="recipeBanner">
-        <div class="foodImg " style="background: url({{recipe.image}}) no-repeat center / cover">
+        <div class="foodImg " style="background: url({{dish.image}}) no-repeat center / cover">
         </div>
 
         <div class="title">
-          <p>{{recipe.title}} <br> <span>por {{recipe.name}}</span></p>
+          <p>{{dish.title}} <br> <span>por {{dish.name}}</span></p>
         </div>
       </div>
 
@@ -34,8 +34,8 @@
             <a class="button">esconder</a>
           </div>
           <ul class="content show">
-            {% for dishe in recipe.ingredients %}
-              <li>{{dishe}}</li>
+            {% for ingredient in dish.ingredients%}
+              <li>{{ingredient}}</li>
             {% endfor %}
           </ul>
         </div>
@@ -46,8 +46,8 @@
             <a class="button">esconder</a>
           </div>
           <ul class="content show">
-            {% for dishe in recipe.preparation %}
-              <li>{{dishe}}</li>
+            {% for prep in dish.preparation %}
+              <li>{{prep}}</li>
             {% endfor %}
           </ul>
         </div>
@@ -58,7 +58,7 @@
             <a class="button">esconder</a>
           </div>
 
-          <p class="content show">{{recipe.information}}</p>
+          <p class="content show">{{dish.information}}</p>
         </div>
       </div>
     </div>

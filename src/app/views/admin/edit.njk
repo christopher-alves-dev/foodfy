@@ -16,14 +16,14 @@
 
           {% include "admin/fields.njk" %}
 
-          <input type="hidden" name="id" value="{{recipe.id}}">
+          <input type="hidden" name="id" value="{{dish.id}}">
 
 
           <button class="btn" type="submit">Salvar receita</button>
         </form>
 
         <form action="/admin/recipes?_method=DELETE" method="POST">
-          <input type="hidden" name="id" value="{{recipe.id}}">
+          <input type="hidden" name="id" value="{{dish.id}}">
           <button class="btn" id="deleteButton" type="submit">Deletar receita</button>
         </form>
       </fieldset>
@@ -32,4 +32,5 @@
 {% endblock%}
 
 {% block scripts %}
+  <script src="../../js/script.js"></script>
 {% endblock %}

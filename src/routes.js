@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = express.Router();
-const dishes = require('./dishes');
+const dishes = require('./app/controllers/dishes');
 
 routes.get("/", dishes.about)
 
