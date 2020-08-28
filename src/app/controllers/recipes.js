@@ -1,4 +1,4 @@
-const Dish = require("../models/Dish");
+const Recipe = require("../models/Recipe");
 
 module.exports = {
   about(req, res) {
@@ -34,8 +34,8 @@ module.exports = {
   },
   index(req, res) {
     
-    Dish.all(function(dishes) {
-      return res.render('admin/recipes', { dishes })
+    Recipe.all(function(recipes) {
+      return res.render('admin/recipes', { recipes })
     })
 
   },
@@ -52,28 +52,28 @@ module.exports = {
       }
     }
   
-    Dish.create(req.body, function(dish) {
-      return res.redirect(`/admin/recipes/${dish.id}`)
+    Recipe.create(req.body, function(recipe) {
+      return res.redirect(`/admin/recipes/${recipe.id}`)
     })
   
   },
   showAdmin(req, res) {
-    Dish.find(req.params.id, function(dish) {
-      if(!dish) return res.send("Dish not found!");
+    Recipe.find(req.params.id, function(recipe) {
+      if(!recipe) return res.send("Recipe not found!");
 
-      dish.created_at = Date(dish.created_at).format
+      recipe.created_at = Date(recipe.created_at).format
 
-      return res.render("admin/recipe", { dish })
+      return res.render("admin/recipe", { recipe })
     })
 
   },
   edit(req, res) {
-    Dish.find(req.params.id, function(dish) {
-      if(!dish) return res.send("Dish not found!");
+    Recipe.find(req.params.id, function(recipe) {
+      if(!recipe) return res.send("Recipe not found!");
 
-      dish.created_at = Date(dish.created_at).format
+      recipe.created_at = Date(recipe.created_at).format
 
-      return res.render("admin/edit", { dish })
+      return res.render("admin/edit", { recipe })
     })
   },
   put(req, res) {
@@ -85,13 +85,13 @@ module.exports = {
       }
     }
 
-    Dish.update(req.body, function() {
+    Recipe.update(req.body, function() {
       return res.redirect(`/admin/recipes/${req.body.id}`)
     })
   },
   delete(req, res) {
 
-    Dish.delete(req.body.id, function() {
+    Recipe.delete(req.body.id, function() {
       return res.redirect(`/admin/recipes`)
     })
   }

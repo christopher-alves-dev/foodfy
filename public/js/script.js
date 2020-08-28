@@ -71,3 +71,16 @@ if(buttonsAdd) {
     return fieldContainer.appendChild(newFieldItem);
   }))
 }
+
+// === Remove Field ===
+// const btnRemoveField = document.querySelectorAll('#removeField');
+
+// if(btnRemoveField) {
+//   btnRemoveField.forEach(btn => btn.addEventListener('click', removeField => {
+//     const field = removeField.target.parentNode;
+//     const fieldItems = document.querySelectorAll('.fieldInput');
+//     const fieldItem = fieldItems[fieldItems.length -1];
+
+//     return field.removeChild(fieldItem);
+//   }))
+// }

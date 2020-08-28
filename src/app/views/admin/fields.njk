@@ -1,22 +1,26 @@
   <div class="inputBlock">
     <label for="image">Imagem da receita</label>
-    <input type="url" name="image" id="image" value="{{dish.image}}">
+    <input type="url" name="image" id="image" value="{{recipe.image}}">
   </div>
 
   <div class="inputBlock">
     <label for="title">Nome da receita</label>
-    <input type="text" name="title" id="title" value="{{dish.title}}">
+    <input type="text" name="title" id="title" value="{{recipe.title}}">
   </div>
 
   <div class="inputBlock">
     <label for="name">Nome do criador</label>
-    <input type="text" name="name" id="name" value="{{dish.name}}">
+    <input type="text" name="name" id="name" value="{{recipe.name}}">
   </div>  
 
   <div class="inputBlock" id="recipeItems">
     <label>Ingredientes</label>
     <div class="fieldContainer">
-      <input type="text" name="ingredients[]" class="fieldInput" value="{{dish.ingredients}}" placeholder="Insira novo ingrediente">
+      {% if recipe.ingredients.length > 1 %}
+        {% for ingredient in recipe.ingredients %}
+          <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
+        {% endfor %}
+      {% endif %}
     </div>
     <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
   </div>
@@ -24,12 +28,16 @@
   <div class="inputBlock" id="recipeItems">
     <label for="preparation">Modo de preparo</label>
     <div class="fieldContainer">
-      <input type="text" name="preparation" class="fieldInput" value="{{dish.preparation}}" placeholder="Insira novo passo">
+      {% if recipe.preparation.length > 1 %}
+        {% for prep in recipe.preparation %}
+          <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
+        {% endfor %}
+      {% endif %}
     </div>
     <button type="button" id="addField" href="">Adicionar novo passo</button>
   </div>
 
   <div class="textAreaBlock">
     <label for="information">Informações adicionais</label>
-    <textarea name="information" id="information">{{dish.information}}</textarea>
+    <textarea name="information" id="information">{{recipe.information}}</textarea>
   </div>

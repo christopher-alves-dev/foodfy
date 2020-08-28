@@ -13,15 +13,15 @@
     </div>
 
     <div class="cards">
-      {% for dish in dishes %}
+      {% for recipe in recipes %}
         <div class="card">
-          <div class="cardImg" style="background: url({{dish.image}}) no-repeat center / cover">
+          <div class="cardImg" style="background: url({{recipe.image}}) no-repeat center / cover">
           </div>
           <div class="cardContent">
-            <p>{{dish.title}} <br> 
-              <span>por {{dish.chef_id}}</span>
+            <p>{{recipe.title}} <br> 
+              <span>por {{recipe.chef_id}}</span>
             </p>
-            <a href="/admin/recipes/{{dish.id}}">Visualizar</a>
+            <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
           </div>
         </div>
       {% endfor %}

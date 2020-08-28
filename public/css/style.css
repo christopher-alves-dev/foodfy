@@ -68,11 +68,6 @@ header .container .hide {
   display: none;
 }
 
-/* admin style */
-
-
-
-
 @media screen and (min-width: 480px) {
   header .container .logo {
     margin-right: 50px;
