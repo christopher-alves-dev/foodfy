@@ -14,7 +14,42 @@
         <legend>Criando receita </legend>
         <form id="createRecipe" action="/admin/recipes" method="POST">
         
-          {% include "admin/fields.njk" %}
+          <div class="inputBlock">
+            <label for="image">Imagem da receita</label>
+            <input type="url" name="image" id="image" value="{{recipe.image}}">
+          </div>
+
+          <div class="inputBlock">
+            <label for="title">Nome da receita</label>
+            <input type="text" name="title" id="title" value="{{recipe.title}}">
+          </div>
+
+          <div class="inputBlock">
+            <label for="name">Nome do criador</label>
+            <input type="text" name="name" id="name" value="{{recipe.name}}">
+          </div>  
+
+          <div class="inputBlock" id="recipeItems">
+            <label>Ingredientes</label>
+            <div class="fieldContainer">
+              <input type="text" name="ingredients[]" class="fieldInput" value="{{recipe.ingredients}}" placeholder="Insira novo ingrediente">
+            </div>
+            <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
+          </div>
+
+          <div class="inputBlock" id="recipeItems">
+            <label for="preparation">Modo de preparo</label>
+            <div class="fieldContainer">
+              <input type="text" name="preparation[]" class="fieldInput" value="{{recipe.preparation}}" placeholder="Insira novo passo">
+            </div>
+            <button type="button" id="addField" href="">Adicionar novo passo</button>
+          </div>
+
+          <div class="textAreaBlock">
+            <label for="information">Informações adicionais</label>
+            <textarea name="information" id="information">{{recipe.information}}</textarea>
+          </div>
+
           <div class="btnContainer">
             <button form="createRecipe" class="btn" type="submit">Salvar receita</button>
           </div>

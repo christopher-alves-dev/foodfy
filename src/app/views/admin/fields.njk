@@ -16,11 +16,9 @@
   <div class="inputBlock" id="recipeItems">
     <label>Ingredientes</label>
     <div class="fieldContainer">
-      {% if recipe.ingredients.length > 1 %}
-        {% for ingredient in recipe.ingredients %}
-          <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
-        {% endfor %}
-      {% endif %}
+      {% for ingredient in recipe.ingredients %}
+        <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
+      {% endfor %}
     </div>
     <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
   </div>
@@ -28,11 +26,9 @@
   <div class="inputBlock" id="recipeItems">
     <label for="preparation">Modo de preparo</label>
     <div class="fieldContainer">
-      {% if recipe.preparation.length > 1 %}
-        {% for prep in recipe.preparation %}
-          <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
-        {% endfor %}
-      {% endif %}
+      {% for prep in recipe.preparation %}
+        <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
+      {% endfor %}
     </div>
     <button type="button" id="addField" href="">Adicionar novo passo</button>
   </div>

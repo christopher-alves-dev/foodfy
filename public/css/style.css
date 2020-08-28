@@ -32,6 +32,11 @@ header .container a {
   color: var(--primary-txt-color);
 }
 
+header .container .logo {
+  display: flex;
+  align-items: center;
+}
+
 header .container .logo a {
   font-family: Montserrat, sans-serif;
   letter-spacing: 3px;

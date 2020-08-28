@@ -64,16 +64,3 @@
     </div>
   </div>
 {% endblock %}
-
-{% block scripts %}
-  <script>
-    const deleteButton = document.querySelector('#deleteButton');
-    const saveButton = document.querySelector('#editButton');
-    
-    if (window.innerWidth > 480) {
-      deleteButton.innerHTML = 'Deletar';
-      editButton.innerHTML = 'Editar';
-    }
-
-  </script>
-{% endblock %}

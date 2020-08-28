@@ -7,6 +7,22 @@
   background-color: var(--admin-color);
 }
 
+.adminHeader .container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.adminHeader .container .nav {
+  background-color: initial;
+}
+
+.adminHeader .container .nav a {
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+
 .recipesList {
   max-width: 940px;
   margin: 0 auto;
@@ -107,7 +123,12 @@
     font-size: 16px;
     margin-bottom: 4px;
   }
+}
 
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 768px) {
@@ -119,9 +140,7 @@
     font-size: 12px;
     padding: 8px 16px;
   }
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
+  
 }
 
 /* ADMIN INDIVIDUAL RECIPE PAGE */
