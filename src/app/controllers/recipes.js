@@ -75,7 +75,10 @@ module.exports = {
 
       recipe.created_at = Date(recipe.created_at).format
 
-      return res.render("admin/edit", { recipe })
+      Recipe.chefsSelectOptions(function(options) {
+        return res.render('admin/edit', { recipe, chefOptions: options})
+      })
+
     })
   },
   put(req, res) {

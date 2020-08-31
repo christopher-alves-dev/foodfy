@@ -19,6 +19,11 @@
 
 .adminHeader .container .nav a {
   text-transform: uppercase;
+  color: whitesmoke;
+  font-weight: thin;
+}
+
+.active {
   color: white;
   font-weight: bold;
 }
