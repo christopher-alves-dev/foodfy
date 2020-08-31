@@ -25,12 +25,12 @@ module.exports = {
   index(req, res) {
     
     Chef.all(function(chefs) {
-      return res.render('admin/chefs', { chefs })
+      return res.render('admin/chefs/index', { chefs })
     })
 
   },
   create(req, res) {
-    return res.render("admin/create")
+    return res.render("admin/chefs/create")
 
   },
   post(req, res) {
@@ -47,13 +47,13 @@ module.exports = {
     })
   
   },
-  showAdmin(req, res) {
+  show(req, res) {
     Chef.find(req.params.id, function(chef) {
       if(!chef) return res.send("Chef not found!");
 
       chef.created_at = Date(chef.created_at).format
 
-      return res.render("admin/chef", { chef })
+      return res.render("admin/chefs/show", { chef })
     })
 
   },
@@ -63,7 +63,7 @@ module.exports = {
 
       chef.created_at = Date(chef.created_at).format
 
-      return res.render("admin/edit", { chef })
+      return res.render("admin/chefs/edit", { chef })
     })
   },
   put(req, res) {

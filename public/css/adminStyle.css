@@ -23,24 +23,28 @@
   font-weight: bold;
 }
 
-.recipesList {
+.recipesList,
+.chefsList {
   max-width: 940px;
   margin: 0 auto;
   padding: 30px;
 }
 
-.recipesList .listHeader {
+.recipesList .listHeader,
+.chefsList .listHeader {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.recipesList .listHeader h4 {
+.recipesList .listHeader h4,
+.chefsList .listHeader h4 {
   font-size: 20px;
 }
 
-.recipesList .listHeader a {
+.recipesList .listHeader a,
+.chefsList .listHeader a {
   font-size: 12px;
   color: white;
   background-color: var(--admin-color);
@@ -125,20 +129,20 @@
   }
 }
 
-@media (min-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 @media (min-width: 768px) {
-  .recipesList .listHeader h4 {
+  .recipesList .listHeader h4,
+  .chefsList .listHeader h4 {
     font-size: 24px;
   }
 
-  .recipesList .listHeader a  {
+  .recipesList .listHeader a,
+  .chefList .listHeader a  {
     font-size: 12px;
     padding: 8px 16px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
   }
   
 }

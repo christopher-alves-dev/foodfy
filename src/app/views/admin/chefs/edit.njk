@@ -1,0 +1,34 @@
+{% extends "admin/adminLayout.njk" %}
+
+{% block head %}
+  <title>Foodfy Admin - Novo Chef</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+  <link rel="stylesheet" href="/css/chef.css">
+  <link rel="stylesheet" href="/css/partials/form.css">
+  <link rel="stylesheet" href="/css/partials/components.css">
+{% endblock %}
+
+{% block adminContent %}
+  <section class="chefsList">
+    <div class="editPage">
+      <fieldset>
+        <legend>Editando chef </legend>
+        <form action="/admin/chefs?_method=PUT" method="POST">
+        
+          {% include "admin/chefs/fields.njk" %}
+          
+          <input type="hidden" name="id" value="{{chef.id}}">
+
+
+          <div class="btnContainer">
+            <button class="btn" type="submit">Editar chef</button>
+            <button form="deleteForm" class="btn" id="deleteButton" type="submit">Deletar receita</button>
+          </div>
+        </form>
+        <form id="deleteForm" action="/admin/chefs?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value="{{chef.id}}">
+        </form>
+      </fieldset>
+    </div>
+  </section>
+{% endblock%}

@@ -1,0 +1,84 @@
+.adminChef {
+  width: 95%;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.adminChef header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adminChef header h2 {
+  font-size: 16px;
+}
+
+@media (min-width:480px) {
+  .adminChef header h2 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width:768px) {
+  .adminChef header h2 {
+    font-size: 24px;
+  }
+}
+
+.chefBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.chefBanner .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.chefBanner .content p {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+}
+
+.chefBanner .content span {
+  font-size: 14px;
+  color: var(--secondary-txt-color);
+  font-weight: normal;
+}
+
+@media (min-width: 480px) {
+  .chefBanner .avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .chefBanner .content p {
+    font-size: 36px;
+  }
+
+  .chefBanner .content span {
+    font-size: 20px;
+  }
+}
+
+
+/* === EDIT CHEF === */
+.editPage .btnContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.editPage .btnContainer button:last-child {
+  margin-top: 20px;
+  background-color: lightcoral;
+}

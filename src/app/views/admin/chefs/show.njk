@@ -1,0 +1,49 @@
+{% extends "admin/adminLayout.njk" %}
+
+{% block head %}
+  <title>Chef {{chef.name}}</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+  <link rel="stylesheet" href="/css/chef.css">
+  <link rel="stylesheet" href="/css/partials/components.css">
+{% endblock %}
+
+{% block adminContent %}
+  <section class="adminChef">
+    <header>
+      <h2>Chef: {{chef.name}}</h2>
+
+      <div class="btnEditContainer">
+        <a href="/admin/chefs/{{chef.id}}/edit" class="btn">Editar Chef</a>
+      </div>
+    </header>
+
+    <div class="chefBanner">
+      <div class="avatar" style="background: no-repeat center / cover url({{chef.avatar_url}})"></div>
+      <div class="content">
+        <p>{{chef.name}} <br> <span>x receitas</span></p>
+      </div>
+    </div>
+
+    <div class="recipesList">
+      <div class="listHeader">
+        <h4>Receitas</h4>
+      </div>
+
+      {# Vincular as receitas ao chef e mostrar na página dele #}
+      <div class="cards">
+        {% for recipe in recipes %}
+          <div class="card">
+            <div class="cardImg" style="background: url({{recipe.image}}) no-repeat center / cover">
+            </div>
+            <div class="cardContent">
+              <p>{{recipe.title}} <br> 
+                <span>por {{recipe.chef_id}}</span>
+              </p>
+              <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "admin/adminLayout.njk" %}
+
+{% block head %}
+  <title>Foodfy Admin - Novo Chef</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+  <link rel="stylesheet" href="/css/partials/form.css">
+  <link rel="stylesheet" href="/css/partials/components.css">
+{% endblock %}
+
+{% block adminContent %}
+  <section class="chefsList adminRecipe">
+    <div class="formRecipe createPage">
+      <fieldset>
+        <legend>Criando chef </legend>
+        <form id="createChef" action="/admin/chefs" method="POST">
+        
+          {% include "admin/chefs/fields.njk" %}
+        
+
+          <div class="btnContainer">
+            <button class="btn" type="submit">Salvar chef</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </section>
+{% endblock%}
