@@ -125,7 +125,6 @@
 
   .cardContent p {
     font-size: 16px;
-    margin-bottom: 4px;
   }
 }
 
@@ -146,6 +145,46 @@
   }
   
 }
+
+/* ADMIN CHEFS LIST */
+.chefsCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.chefsCards .card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.chefsCards .card .cardImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.chefsCards .cardContent p {
+  font-size: 16px;
+}
+
+.chefsCards .card a {
+  border: none;
+  padding: 0;
+}
+
+@media (min-width: 480px) {
+  .chefsCards {
+    grid-template-columns: 1fr 1fr;    
+  }
+  
+  .chefsCards .card {
+    gap: 20px;
+  } 
+}
+
 
 /* ADMIN INDIVIDUAL RECIPE PAGE */
 .adminRecipe .editRecipe {

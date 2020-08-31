@@ -5,7 +5,12 @@ const db = require('../../config/db');
 module.exports = {
   all(callback) {
     
-    db.query(`SELECT * FROM chefs`, function(err, results) {
+    db.query(`
+      SELECT chefs.*, count(recipes) AS total_recipes
+      FROM chefs
+      LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
+      GROUP BY chefs.id
+      ORDER BY total_recipes DESC`, function(err, results) {
       if(err) throw `Database Error! ${err}`;
       
       callback(results.rows)

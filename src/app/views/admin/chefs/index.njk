@@ -12,14 +12,13 @@
       <a href="/admin/chefs/create">Novo chef</a>
     </div>
 
-    <div class="cards">
+    <div class="chefsCards">
       {% for chef in chefs %}
         <div class="card">
-          <div class="cardImg" style="background: url({{chef.image}}) no-repeat center / cover">
+          <div class="cardImg" style="background: url({{chef.avatar_url}}) no-repeat center / cover">
           </div>
           <div class="cardContent">
-            <p>{{chef.title}} <br> 
-              <span>por {{chef.chef_id}}</span>
+            <p>{{chef.name}} <br> <span>{{chef.total_recipes}} receitas</span>
             </p>
             <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
           </div>

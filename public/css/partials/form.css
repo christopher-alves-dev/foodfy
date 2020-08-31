@@ -16,22 +16,25 @@ legend {
 }
 
 .inputBlock label,
+.selectBlock label,
 .textAreaBlock label {
   font-size: 14px;
   font-weight: bold;
 }
 
-.inputBlock {
+.inputBlock,
+.selectBlock {
   margin-bottom: 30px;
 }
 
 .inputBlock input,
+.selectBlock select,
 .textAreaBlock textarea {
   width: 100%;
   height: 49px;
   border: 1px solid #dddddd;
   margin-top: 10px;
-  padding: 16px;
+  padding: 14px;
   border-radius: 4px;
   outline-color: var(--admin-color);
   font: 14px Roboto;
@@ -77,6 +80,7 @@ form + form .btn {
   }
 
   .inputBlock label,
+  .selectBlock label,
   .textAreaBlock label {
     font-size: 16px;
   }
@@ -86,6 +90,7 @@ form + form .btn {
   }
 
   .inputBlock input,
+  .selectBlock select,
   .textAreaBlock textarea {
     font-size: 16px;
   }

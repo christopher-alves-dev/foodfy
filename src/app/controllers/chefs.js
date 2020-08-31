@@ -47,7 +47,7 @@ module.exports = {
     })
   
   },
-  show(req, res) {
+  showAdmin(req, res) {
     Chef.find(req.params.id, function(chef) {
       if(!chef) return res.send("Chef not found!");
 
