@@ -20,16 +20,15 @@
     <div class="chefBanner">
       <div class="avatar" style="background: no-repeat center / cover url({{chef.avatar_url}})"></div>
       <div class="content">
-        <p>{{chef.name}} <br> <span>{{chef.total_recipes}} receitas</span></p>
+        <p>{{chef.name}} <br> <span>{{recipe.total_recipes}} {{'receitas' if recipe.total_recipes > 1 else 'receita'}}</span></p>
       </div>
     </div>
 
     <div class="recipesList">
       <div class="listHeader">
-        <h4>Receitas</h4>
+        <h4>{{'Receitas' if recipes.length > 1 else 'Receita'}}</h4>
       </div>
 
-      {# Vincular as receitas ao chef e mostrar na página dele #}
       <div class="cards">
         {% for recipe in recipes %}
           <div class="card">
@@ -37,7 +36,7 @@
             </div>
             <div class="cardContent">
               <p>{{recipe.title}} <br> 
-                <span>por {{recipe.chef_id}}</span>
+                <span>por {{recipe.chefs_name}}</span>
               </p>
               <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
             </div>
