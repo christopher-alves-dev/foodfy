@@ -1,6 +1,6 @@
 const openMenuBtn = document.querySelector('.openMenuButton');
 const closeMenuBtn = document.querySelector('.closeMenuButton');
-const mobileMenu = document.querySelector('.nav');
+const mobileMenu = document.querySelector('.links');
 
 if(openMenuBtn) {
   
@@ -21,7 +21,7 @@ if(openMenuBtn) {
 
 // === Menu active ===
 const currentPage = location.pathname;
-const menuItems = document.querySelectorAll('header .nav a');
+const menuItems = document.querySelectorAll('header .links a');
 for (item of menuItems) {
   if (currentPage.includes(item.getAttribute('href'))) {
     item.classList.add('active');

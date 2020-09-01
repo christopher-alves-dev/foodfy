@@ -29,6 +29,11 @@ header .container {
   margin: 0 auto;
 }
 
+header .container .navMenu {
+  flex: 1;
+  margin-left: 10px;
+}
+
 header .container a {
   color: var(--primary-txt-color);
 }
@@ -52,6 +57,7 @@ header .container .links {
   text-align: center;
   background-color: var(--primary-color);
   transition: ease-in .4s;
+  z-index: 2;
 }
 
 header .container .links a {
@@ -61,7 +67,8 @@ header .container .links a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-header .container .links-active {
+header .container .nav-active {
+  z-index: 2;
   left: 0;
 }
 
@@ -79,14 +86,14 @@ header .container .hide {
   position: absolute;
   left: 0;
   bottom: -20px;
-  width: 95%;
+  width: 320px;
   padding: 0 5%;
 }
 
 .search input {
+  width: 75%;
   height: 35px;
   border: 1px solid #dddddd;
-  margin-top: 10px;
   padding: 14px;
   border-radius: 4px;
   outline-color: var(--primary-color);
@@ -104,23 +111,44 @@ header .container .hide {
   font-weight: bold;
 }
 
-@media screen and (min-width: 480px) {
-  header .container .logo {
-    margin-right: 50px;
-  }
-}
 
 @media screen and (min-width: 600px) {
+  header .container .navMenu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+
+  .search {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    padding: 0;
+  }
+
+  .search form {
+    display: grid;
+    grid-template-columns: 2fr auto;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .search form input {
+    width: 100%;
+  }
+
   header .container .links {
     position: static;
     background-color: white;
-    text-align: left;
   }
 
   header .container .links a {
     display: inline-block;
     border-bottom: none;
-    padding: 0 15px; 
+    padding: 0 10px; 
   }
 
   .openMenuButton, 
