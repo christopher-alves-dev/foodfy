@@ -1,37 +1,6 @@
 const Recipe = require("../models/Recipe");
 
 module.exports = {
-  about(req, res) {
-    return res.render("about")
-
-  },
-  recipesList(req, res) {
-    return res.render("recipesList")
-
-  },
-  show(req, res) {
-    const { id } = req.params;
-
-    const foundRecipe = data.recipes.find(function(recipe) {
-      return recipe.id == id
-      
-    })
-  
-    if(!foundRecipe) {
-      return res.render("not-found");
-    }
-  
-    const recipe = {
-      ...foundRecipe
-    }
-  
-  
-    return res.render("recipe", { recipe })
-  },
-  history(req, res) {
-    return res.render("history")
-
-  },
   index(req, res) {
     
     Recipe.all(function(recipes) {
@@ -59,7 +28,7 @@ module.exports = {
     })
   
   },
-  showAdmin(req, res) {
+  show(req, res) {
     Recipe.find(req.params.id, function(recipe) {
       if(!recipe) return res.send("Recipe not found!");
 

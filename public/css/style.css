@@ -20,6 +20,7 @@ body {
 
 /* === HEADER === */
 header .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +44,7 @@ header .container .logo a {
   font-size: 23px;
 }
 
-header .container .nav {
+header .container .links {
   position: absolute;
   width: 100%;
   top: 98.97px;
@@ -53,14 +54,14 @@ header .container .nav {
   transition: ease-in .4s;
 }
 
-header .container .nav a {
+header .container .links a {
   color: var(--primary-txt-color);
   display: block;
   padding: 15px 0; 
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-header .container .nav-active {
+header .container .links-active {
   left: 0;
 }
 
@@ -73,6 +74,36 @@ header .container .hide {
   display: none;
 }
 
+/* Filter */
+.search {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 95%;
+  padding: 0 5%;
+}
+
+.search input {
+  height: 35px;
+  border: 1px solid #dddddd;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 4px;
+  outline-color: var(--primary-color);
+  font: 14px Roboto;
+}
+
+.search button {
+  font-size: 12px;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0 8px;
+  height: 35px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 480px) {
   header .container .logo {
     margin-right: 50px;
@@ -80,13 +111,13 @@ header .container .hide {
 }
 
 @media screen and (min-width: 600px) {
-  header .container .nav {
+  header .container .links {
     position: static;
     background-color: white;
     text-align: left;
   }
 
-  header .container .nav a {
+  header .container .links a {
     display: inline-block;
     border-bottom: none;
     padding: 0 15px; 

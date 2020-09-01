@@ -1,27 +1,6 @@
 const Chef = require("../models/Chef");
 
 module.exports = {
-  about(req, res) {
-    return res.render("about")
-
-  },
-  chefsList(req, res) {
-    return res.render("chefsList")
-
-  },
-  show(req, res) {
-    Chef.find(req.params.id, function(chef) {
-      if(!chef) return res.send("Chef not found!");
-
-      chef.created_at = Date(chef.created_at).format
-
-      return res.render("chef", { chef })
-    })
-  },
-  history(req, res) {
-    return res.render("history")
-
-  },
   index(req, res) {
     
     Chef.all(function(chefs) {
@@ -47,7 +26,7 @@ module.exports = {
     })
   
   },
-  showAdmin(req, res) {
+  show(req, res) {
     Chef.find(req.params.id, function(chef) {
       if(!chef) return res.send("Chef not found!");
 

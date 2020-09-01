@@ -1,4 +1,4 @@
-section .container {
+.historyPage .container {
   display: grid;
   grid-template-rows: repeat(3, auto);
   grid-row-gap: 30px;
@@ -7,22 +7,22 @@ section .container {
   padding: 30px;
 }
 
-section .container .title {
+.historyPage .container .title {
   margin-bottom: 20px;
   font-size: 20px;
 }
 
-section .container p {
+.historyPage .container p {
   font-size: 14px;
   line-height: 1.8;
 }
 
 @media screen and (min-width: 768px) {
-  section .container .title {
+  .historyPage .container .title {
     font-size: 24px;
   }
 
-  section .container p {
+  .historyPage .container p {
     font-size: 16px;
   }
 }

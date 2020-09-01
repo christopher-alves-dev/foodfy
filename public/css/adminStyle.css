@@ -101,14 +101,8 @@
   font-size: 12px;
   color: var(--admin-color);
   font-weight: bold;
-  border: 1px solid var(--admin-color);
-  padding: 4px 8px;
-  border-radius: 4px;
+  border: none;
   transition: .4s ease-in-out;
-}
-.cardContent a:hover {
-  background-color: var(--admin-color);
-  color: white;
 }
 
 @media (min-width: 480px) {
@@ -183,6 +177,17 @@
 @media (min-width: 480px) {
   .chefsCards {
     grid-template-columns: 1fr 1fr;    
+  }
+  
+  .chefsCards .card {
+    gap: 20px;
+  } 
+}
+
+@media (min-width: 768px) {
+  .chefsCards {
+    grid-template-columns: repeat(4, 1fr);  
+    grid-template-rows: 1fr 1fr;  
   }
   
   .chefsCards .card {
