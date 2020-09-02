@@ -4,7 +4,7 @@
 :root {
   --primary-txt-color: #111111;
   --secondary-txt-color: #777777;
-  --primary-color: #f8c0b8;
+  --primary-color: #FBDFDB;
 }
 
 * {
@@ -16,6 +16,11 @@
 
 body {
   font-family: Roboto, sans-serif;
+}
+
+.active {
+  color: white;
+  font-weight: bold;
 }
 
 /* === HEADER === */
@@ -102,20 +107,25 @@ header .container .hide {
 
 .search button {
   font-size: 12px;
-  color: white;
+  color: black;
   background-color: var(--primary-color);
-  border: none;
+  border: 2px solid var(--primary-color);
   padding: 0 8px;
   height: 35px;
   border-radius: 4px;
   font-weight: bold;
+  cursor: pointer;
+  transition: .2s ease-in-out;
 }
 
+.search button:hover {
+  background-color: transparent;
+}
 
 @media screen and (min-width: 600px) {
   header .container .navMenu {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
   }
@@ -157,7 +167,6 @@ header .container .hide {
   }
 }
 
-/* === HEADER === */
 
 /* === BANNER === */
 
@@ -227,7 +236,6 @@ header .container .hide {
     max-width: 216px;
   }
 }
-/* === BANNER === */
 
 /* === RECIPES === */
 main {
@@ -299,7 +307,7 @@ main .container .recipes .recipeCard .cardContent span {
 
 main .container .recipes .recipeCard .cardContent a {
   font-size: 12px;
-  color: white;
+  color: gray;
   background-color: var(--primary-color);
   padding: 8px 16px;
   border-radius: 4px;
@@ -326,8 +334,6 @@ main .container .recipes .recipeCard .cardContent a {
   }
 }
 
-/* === RECIPES === */
-
 /* === FOOTER === */
 footer {
   background-color: #eeeeee;
@@ -340,4 +346,3 @@ footer .container {
   font-size: 14px;
   color: #999999;
 }
-/* === FOOTER === */

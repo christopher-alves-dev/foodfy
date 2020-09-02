@@ -17,6 +17,15 @@ if(openMenuBtn) {
   })
 }
 
+// //=== Add href to cards ===
+// const chefCard = document.querySelectorAll('.chefsCards .card');
+
+// if(chefCard) {
+//   chefCard.forEach( card => card.addEventListener('click', function(addHref) {
+//     addHref.href = '/admin/chefs/{{chef.id}}';
+//     console.log('cliquei')
+//   }))
+// }
 
 
 // === Menu active ===
@@ -28,12 +37,10 @@ for (item of menuItems) {
   }
 }
 
-
-
 // ================================
 
 // === Individual Page ===
-const cards = document.querySelectorAll('.recipeCard');
+// const cards = document.querySelectorAll('.recipeCard');
 
 // for (let card of cards) {
 //   card.addEventListener('click', function() {

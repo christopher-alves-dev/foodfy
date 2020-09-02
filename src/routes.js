@@ -5,14 +5,14 @@ const chefsClients = require('./app/controllers/chefsClients')
 const recipes = require('./app/controllers/recipes');
 const chefs = require('./app/controllers/chefs');
 
-//SITE RECIPES
-routes.get("/", recipesClients.index);
-routes.get("/recipes", recipesClients.recipesList);
-routes.get("/recipes/:id", recipesClients.show);
+routes.get("/", recipesClients.about);
 routes.get("/history", recipesClients.history );
 
+//SITE RECIPES
+routes.get("/recipes", recipesClients.index);
+routes.get("/recipes/:id", recipesClients.show);
+
 //SITE CHEFS
-routes.get("/", chefsClients.about);
 routes.get("/chefs", chefsClients.index);
 routes.get("/chefs/:id", chefsClients.show);
 

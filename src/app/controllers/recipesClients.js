@@ -1,38 +1,37 @@
 const Recipe = require("../models/Recipe");
 
 module.exports = {
-  index(req, res) {
+  about(req, res) {
     Recipe.all(function(recipes) {
-      return res.render('about', { recipes })
+      return res.render('user/about', { recipes })
     })
   },
-  recipesList(req, res) {
-    Recipe.all(function(recipes) {
-      return res.render('index', { recipes })
-    })
+  index(req, res) {
+    const { filter } = req.query
+  
+    if(filter) {
+      Recipe.findBy(filter, function(recipes) {
+        return res.render('user/recipes/index', { recipes, filter })
+      })
+
+    } else {
+      Recipe.all(function(recipes) {
+        return res.render('user/recipes/index', { recipes })
+      })
+    }
 
   },
   show(req, res) {
-    const { id } = req.params;
+    Recipe.find(req.params.id, function(recipe) {
+      if(!recipe) return res.send("Recipe not found!");
 
-    const foundRecipe = data.recipes.find(function(recipe) {
-      return recipe.id == id
-      
+      recipe.created_at = Date(recipe.created_at).format
+
+      return res.render("user/recipes/recipe", { recipe })
     })
-  
-    if(!foundRecipe) {
-      return res.render("not-found");
-    }
-  
-    const recipe = {
-      ...foundRecipe
-    }
-  
-  
-    return res.render("recipe", { recipe })
   },
   history(req, res) {
-    return res.render("history")
+    return res.render("user/history")
 
   }
 }

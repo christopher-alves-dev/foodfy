@@ -1,0 +1,26 @@
+{% extends "user/layout.njk" %}
+
+{% block head %}
+  <title>FoodFy - Lista de Chefs</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+{% endblock %}
+
+{% block content %}
+  <section class="chefsList">
+
+    <div class="chefsCards">
+      {% for chef in chefs %}
+        <div class="card">
+          <div class="cardImg" style="background: url({{chef.avatar_url}}) no-repeat center / cover">
+          </div>
+          <div class="cardContent">
+            <p>{{chef.name}} <br>
+              <span>{{chef.total_recipes}} receitas</span>
+            </p>
+            {# <a href="/admin/chefs/{{chef.id}}">Visualizar</a> #}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

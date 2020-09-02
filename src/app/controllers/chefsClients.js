@@ -1,10 +1,11 @@
-module.exports = {
-  about(req, res) {
-    return res.render("about")
+const Chef = require("../models/Chef");
 
-  },
+module.exports = {
   index(req, res) {
-    return res.render("chefsList")
+    Chef.all(function(chefs) {
+      return res.render('user/chefs/index', { chefs })
+    })
+
   },
   show(req, res) {
     Chef.find(req.params.id, function(chef) {
@@ -12,7 +13,7 @@ module.exports = {
 
       chef.created_at = Date(chef.created_at).format
 
-      return res.render("chef", { chef })
+      return res.render("user/chefs/chef", { chef })
     })
   }
 }

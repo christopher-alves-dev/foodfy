@@ -3,9 +3,18 @@ const Recipe = require("../models/Recipe");
 module.exports = {
   index(req, res) {
     
-    Recipe.all(function(recipes) {
-      return res.render('admin/recipes', { recipes })
-    })
+    const { filter } = req.query
+  
+    if(filter) {
+      Recipe.findBy(filter, function(recipes) {
+        return res.render('admin/recipes', { recipes, filter })
+      })
+
+    } else {
+      Recipe.all(function(recipes) {
+        return res.render('admin/recipes', { recipes })
+      })
+    }
 
   },
   create(req, res) {

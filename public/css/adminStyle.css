@@ -13,14 +13,33 @@
   align-items: center;
 }
 
-.adminHeader .container .nav {
+.adminHeader .container .links {
   background-color: initial;
 }
 
-.adminHeader .container .nav a {
+.adminHeader .container .links a {
   text-transform: uppercase;
   color: whitesmoke;
   font-weight: thin;
+}
+
+.adminHeader .search {
+  bottom: -60px;
+}
+
+.adminHeader .search input {
+  outline-color: var(--admin-color);
+}
+
+.adminHeader .search button {
+  background-color: white;
+  color: var(--admin-color);
+  border-color: white;
+}
+
+.adminHeader .search button:hover {
+  background-color: var(--admin-color);
+  color: white;
 }
 
 .active {
@@ -33,6 +52,10 @@
   max-width: 940px;
   margin: 0 auto;
   padding: 30px;
+}
+
+.recipesList {
+  margin-top: 60px;
 }
 
 .recipesList .listHeader,

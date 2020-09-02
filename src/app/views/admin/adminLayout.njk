@@ -23,9 +23,13 @@
           </a>
         </h1>
       </div>
-      <div class="nav">
-        <a href="/admin/recipes">receitas</a>
-        <a href="/admin/chefs">chefs</a>
+      <div class="navMenu">
+        <nav class="links">
+          <a href="/admin/recipes">Receitas</a>
+          <a href="/admin/chefs">Chefs</a>
+        </nav>
+        {% block search %}
+        {% endblock %}
       </div>
     </div>
   </header>
