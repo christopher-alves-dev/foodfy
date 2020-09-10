@@ -12,12 +12,9 @@
     <div class="formRecipe createPage">
       <fieldset>
         <legend>Criando receita </legend>
-        <form id="createRecipe" action="/admin/recipes" method="POST">
+        <form id="createRecipe" action="/admin/recipes" method="POST" enctype="multipart/form-data">
         
-          <div class="inputBlock">
-            <label for="image">Imagem da receita</label>
-            <input type="url" name="image" id="image" value="{{recipe.image}}">
-          </div>
+          {% include "admin/parts/uploadFileField.njk"%}
 
           <div class="inputBlock">
             <label for="title">Nome da receita</label>

@@ -208,10 +208,6 @@ header .container .hide {
   width: 100%;
 }
 
-@media screen and (min-width: 340px) {
-
-}
-
 @media screen and (min-width: 480px) {
   .banner .container {
     justify-content: space-around;

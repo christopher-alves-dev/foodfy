@@ -1,45 +1,42 @@
-  <div class="inputBlock">
-    <label for="image">Imagem da receita</label>
-    <input type="url" name="image" id="image" value="{{recipe.image}}">
-  </div>
+{% include "admin/parts/uploadFileField.njk"%}
 
-  <div class="inputBlock">
-    <label for="title">Nome da receita</label>
-    <input type="text" name="title" id="title" value="{{recipe.title}}">
-  </div>
+<div class="inputBlock">
+  <label for="title">Nome da receita</label>
+  <input type="text" name="title" id="title" value="{{recipe.title}}">
+</div>
 
-  <div class="selectBlock">
-    <label for="name">Chef</label>
-    <div>
-      <select name="chef">
-        {% for chef in chefOptions %}
-          <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {% endif %}>{{chef.name}}</option>
-        {% endfor %}
-      </select>
-    </div>
-  </div>  
-
-  <div class="inputBlock" id="recipeItems">
-    <label>Ingredientes</label>
-    <div class="fieldContainer">
-      {% for ingredient in recipe.ingredients %}
-        <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
+<div class="selectBlock">
+  <label for="name">Chef</label>
+  <div>
+    <select name="chef">
+      {% for chef in chefOptions %}
+        <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {% endif %}>{{chef.name}}</option>
       {% endfor %}
-    </div>
-    <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
+    </select>
   </div>
+</div>  
 
-  <div class="inputBlock" id="recipeItems">
-    <label for="preparation">Modo de preparo</label>
-    <div class="fieldContainer">
-      {% for prep in recipe.preparation %}
-        <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
-      {% endfor %}
-    </div>
-    <button type="button" id="addField" href="">Adicionar novo passo</button>
+<div class="inputBlock" id="recipeItems">
+  <label>Ingredientes</label>
+  <div class="fieldContainer">
+    {% for ingredient in recipe.ingredients %}
+      <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
+    {% endfor %}
   </div>
+  <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
+</div>
 
-  <div class="textAreaBlock">
-    <label for="information">Informações adicionais</label>
-    <textarea name="information" id="information">{{recipe.information}}</textarea>
+<div class="inputBlock" id="recipeItems">
+  <label for="preparation">Modo de preparo</label>
+  <div class="fieldContainer">
+    {% for prep in recipe.preparation %}
+      <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
+    {% endfor %}
   </div>
+  <button type="button" id="addField" href="">Adicionar novo passo</button>
+</div>
+
+<div class="textAreaBlock">
+  <label for="information">Informações adicionais</label>
+  <textarea name="information" id="information">{{recipe.information}}</textarea>
+</div>

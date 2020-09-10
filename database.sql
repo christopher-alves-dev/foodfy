@@ -8,7 +8,7 @@ CREATE TABLE "chefs" (
 CREATE TABLE "files" (
   "id" SERIAL PRIMARY KEY,
   "name" text,
-  "path" text
+  "path" text NOT NULL
 );
 
 CREATE TABLE "recipe_files" (

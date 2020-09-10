@@ -18,10 +18,10 @@ module.exports = {
 
   },
   create(req, res) {
+    
     Recipe.chefsSelectOptions(function(options) {
       return res.render('admin/create', {chefOptions: options})
     })
-
   },
   post(req, res) {
     const keys = Object.keys(req.body);

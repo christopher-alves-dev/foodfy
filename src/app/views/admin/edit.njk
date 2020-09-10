@@ -12,7 +12,7 @@
     <div class="formRecipe">
       <fieldset>
         <legend>Editando receita</legend>
-        <form class="fields" action="/admin/recipes?_method=PUT" method="POST">
+        <form class="fields" action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
 
           {% include "admin/fields.njk" %}
 

@@ -13,18 +13,26 @@
   align-items: center;
 }
 
-.adminHeader .container .links {
+.adminHeader .container .linksAdmin {
   background-color: initial;
+  text-align: center;
 }
 
-.adminHeader .container .links a {
+.adminHeader .container .linksAdmin a {
   text-transform: uppercase;
   color: whitesmoke;
   font-weight: thin;
+  margin-left: 10px;
 }
 
 .adminHeader .search {
   bottom: -60px;
+}
+
+@media (min-width: 600px) {
+  .adminHeader .search {
+    bottom: 0;
+  }
 }
 
 .adminHeader .search input {
@@ -262,5 +270,111 @@
   .adminRecipe .editRecipe h2 {
     font-size: 24px;
   }
+}
 
+/* PHOTOS CONTAINER */
+form .inputBlock .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  form .inputBlock .container {
+   grid-template-columns: auto 1fr;
+   gap: 10px;
+  }
+}
+
+/* PHOTOS UPLOAD */
+form .inputBlock #photosUpload {
+  position: relative;
+  display: block;
+  width: 150px;
+  overflow: hidden;
+}
+
+form .inputBlock #photosUpload span {
+  padding: 50px;
+  font-size: 45px;
+  color: #777;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+
+form .inputBlock #photosInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* PHOTOS PREVIEW */
+form .inputBlock #photosPreview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin: 8px 0;
+}
+
+form .inputBlock #photosPreview img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+@media (min-width: 480px) {
+  form .inputBlock #photosPreview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  form .inputBlock #photosPreview {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  form .inputBlock #photosPreview {
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0;
+  }
+
+  form .inputBlock #photosPreview img {
+    height: 147px;
+  }
+}
+
+/* button remove photo */
+#photosPreview .photo {
+  position: relative;
+}
+
+#photosPreview .photo i {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 200%;
+  transition: opacity .3s;
+  opacity: 0;
+}
+
+#photosPreview .photo i:hover {
+opacity: 1;
 }

@@ -91,15 +91,106 @@ if(buttonsAdd) {
   }))
 }
 
-// === Remove Field ===
-// const btnRemoveField = document.querySelectorAll('#removeField');
+const PhotosUpload = {
+  input: '',
+  preview: document.querySelector('#photosPreview'),
+  uploadLimit: 5,
+  files: [],
+  handleFileInput(event) {
+    //Ao clicar no input e selecionar os arquivos ele coloca como files dentro do input, então estamos extraindo ele e chamando de fileList, que é um construtor de SOMENTE LEITURA!
+    const { files: fileList } = event.target
+    PhotosUpload.input = event.target
+    
+    if(PhotosUpload.hasLimit(event)) return
 
-// if(btnRemoveField) {
-//   btnRemoveField.forEach(btn => btn.addEventListener('click', removeField => {
-//     const field = removeField.target.parentNode;
-//     const fieldItems = document.querySelectorAll('.fieldInput');
-//     const fieldItem = fieldItems[fieldItems.length -1];
+    //transformando o fileList em um array.
+    Array.from(fileList).forEach(file => {
 
-//     return field.removeChild(fieldItem);
-//   }))
-// }
+      PhotosUpload.files.push(file)
+
+      const reader = new FileReader()
+
+      //quando estiver pronto, executar o código da função onload. 
+      reader.onload = () => {
+        
+        const image = new Image() //mesma coisa que fazer no html <img/>
+        image.src = String(reader.result)
+
+        const div = PhotosUpload.getContainer(image)
+        PhotosUpload.preview.appendChild(div)
+      }
+
+      //Para ler a função acima, ele só ficará pronto quando ler o código abaixo. Após ler, executará o código acima. 
+      reader.readAsDataURL(file)
+    })
+
+    PhotosUpload.input.files = PhotosUpload.getAllFiles()
+  },
+  hasLimit(event) {
+    const { uploadLimit, input, preview } = PhotosUpload
+    const { files: fileList } = input
+
+    if(fileList.length > uploadLimit) {
+      alert(`Envie no máximo ${uploadLimit} fotos`)
+      event.preventDefault()
+      return true
+    }
+
+    const photosDiv = []
+    //preview é a div PhotosPreview, que é um container onde ficam as fotos que fizeram upload. 
+    //childNodes é cada foto dentro do photosPreview. 
+    preview.childNodes.forEach(item => {
+      if (item.classList && item.classList.value == 'photo') {
+        photosDiv.push(item)
+      }
+    })
+
+    const totalPhotos = fileList.length + photosDiv.length
+    if (totalPhotos > uploadLimit) {
+      alert(`Você atingiu o limite máximo de ${uploadLimit} fotos!`)
+      event.preventDefault()
+      return true
+    }
+
+    return false
+  },
+  getAllFiles() {
+    const dataTransfer = new ClipboardEvent('').clipboardData || new DataTransfer()
+
+    PhotosUpload.files.forEach(file => dataTransfer.items.add(file))
+
+    return dataTransfer.files
+  },
+  getContainer(image) {
+    const div = document.createElement('div')
+    div.classList.add('photo')
+
+    div.onclick = PhotosUpload.removePhoto
+
+    div.appendChild(image)
+
+    div.appendChild(PhotosUpload.getRemoveButton())
+
+    return div
+  },
+  getRemoveButton() {
+    const button = document.createElement('i')
+    button.classList.add('material-icons')
+    button.innerHTML = 'close'
+
+    return button
+  },
+  removePhoto(event) {
+    const photoDiv = event.target.parentNode
+    //pegando a lista de photos do photosPreview.
+    const photosArray = Array.from(PhotosUpload.preview.children)
+
+    //buscando index da foto clicada. 
+    index = photosArray.indexOf(photoDiv)
+
+    PhotosUpload.files.splice(index, 1)
+    PhotosUpload.input.files = PhotosUpload.getAllFiles()
+    
+    photoDiv.remove()
+  }
+}
