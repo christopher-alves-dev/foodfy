@@ -14,8 +14,19 @@
   text-decoration: none;
 }
 
+html,
 body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   font-family: Roboto, sans-serif;
+}
+
+footer {
+  margin-top: auto;
 }
 
 .active {
@@ -30,6 +41,7 @@ header .container {
   align-items: center;
   justify-content: space-between;
   padding: 30px;
+  width: 100%;
   max-width: 940px;
   margin: 0 auto;
 }

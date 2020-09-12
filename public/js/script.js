@@ -17,16 +17,6 @@ if(openMenuBtn) {
   })
 }
 
-// //=== Add href to cards ===
-// const chefCard = document.querySelectorAll('.chefsCards .card');
-
-// if(chefCard) {
-//   chefCard.forEach( card => card.addEventListener('click', function(addHref) {
-//     addHref.href = '/admin/chefs/{{chef.id}}';
-//     console.log('cliquei')
-//   }))
-// }
-
 
 // === Menu active ===
 const currentPage = location.pathname;
@@ -37,20 +27,6 @@ for (item of menuItems) {
   }
 }
 
-// ================================
-
-// === Individual Page ===
-// const cards = document.querySelectorAll('.recipeCard');
-
-// for (let card of cards) {
-//   card.addEventListener('click', function() {
-//     //pegar o atributo id 
-//     const addressId = card.getAttribute('id');
-   
-//     window.location.href = `/recipes/${addressId}`;
-    
-//   })
-// }
 
 // === Recipe Wrapper ===
 const content = document.querySelectorAll('.recipeInfo .content');
@@ -90,6 +66,19 @@ if(buttonsAdd) {
     return fieldContainer.appendChild(newFieldItem);
   }))
 }
+
+//Delete button and Edit button
+const editBtn = document.querySelector('#editButton')
+const deleteBtn = document.querySelector('#deleteButton')
+const windowWidth = window.innerWidth;
+const responsive = 480;
+console.log(windowWidth)
+
+if(windowWidth >= responsive) {
+  deleteBtn.innerHTML = 'Deletar Chef'
+  editBtn.innerHTML = 'Salvar Chef'
+}
+
 
 const PhotosUpload = {
   input: '',

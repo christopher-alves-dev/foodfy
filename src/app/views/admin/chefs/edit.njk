@@ -12,18 +12,40 @@
   <section class="chefsList">
     <div class="editPage">
       <fieldset>
-        <legend>Editando chef </legend>
-        <form action="/admin/chefs?_method=PUT" method="POST">
-        
-          {% include "admin/chefs/fields.njk" %}
-          
-          <input type="hidden" name="id" value="{{chef.id}}">
-
+        <div class="formHeader">
+          <legend>Editando chef
+          </legend>
 
           <div class="btnContainer">
-            <button class="btn" type="submit">Editar chef</button>
-            <button form="deleteForm" class="btn" id="deleteButton" type="submit">Deletar receita</button>
+            <button form="deleteForm" class="btn" id="deleteButton" type="submit">
+              <i class="material-icons">delete</i>
+            </button>
+
+            <button form="editChef" class="btn" type="submit" id="editButton">
+              <i class="material-icons">done</i>
+            </button>
           </div>
+        </div>
+        <form action="/admin/chefs?_method=PUT" method="POST" id="editChef">
+
+          <div class="inputBlock">
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" value="{{chef.name}}">
+          </div>
+
+          <div class="inputBlock chef">
+            <label for="photos">Avatar</label>
+            <div class="container chefUpload">
+              <div id="photosUpload">
+                <input type="file" name="photos" id="photosInput" value="chef.name" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+              </div>
+              <div id="photosPreview"></div>
+            </div>
+          </div>
+
+          <input type="hidden" name="id" value="{{chef.id}}">
+
+          
         </form>
         <form id="deleteForm" action="/admin/chefs?_method=DELETE" method="POST">
           <input type="hidden" name="id" value="{{chef.id}}">
@@ -31,4 +53,4 @@
       </fieldset>
     </div>
   </section>
-{% endblock%}
+  {% endblock%}

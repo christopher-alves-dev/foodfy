@@ -14,7 +14,7 @@
         <legend>Criando receita </legend>
         <form id="createRecipe" action="/admin/recipes" method="POST" enctype="multipart/form-data">
         
-          {% include "admin/parts/uploadFileField.njk"%}
+          {% include "admin/parts/uploadRecipeFile.njk"%}
 
           <div class="inputBlock">
             <label for="title">Nome da receita</label>

@@ -2,6 +2,26 @@
   --admin-color: #6558C3;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
 /* ADMIN RECIPES LIST */
 .adminHeader {
   background-color: var(--admin-color);
@@ -57,6 +77,7 @@
 
 .recipesList,
 .chefsList {
+  width: 100%;
   max-width: 940px;
   margin: 0 auto;
   padding: 30px;
@@ -272,7 +293,7 @@
   }
 }
 
-/* PHOTOS CONTAINER */
+/* PHOTOS RECIPES CONTAINER */
 form .inputBlock .container {
   display: grid;
   grid-template-columns: 1fr;
@@ -286,7 +307,7 @@ form .inputBlock .container {
   }
 }
 
-/* PHOTOS UPLOAD */
+/* PHOTOS RECIPES UPLOAD */
 form .inputBlock #photosUpload {
   position: relative;
   display: block;
@@ -316,7 +337,7 @@ form .inputBlock #photosInput {
   cursor: pointer;
 }
 
-/* PHOTOS PREVIEW */
+/* PHOTOS RECIPES PREVIEW */
 form .inputBlock #photosPreview {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -377,4 +398,37 @@ form .inputBlock #photosPreview img {
 
 #photosPreview .photo i:hover {
 opacity: 1;
+}
+
+
+/* CHEF CREATE PAGE - AVATAR CHEF UPLOAD */
+#createChef .inputBlock .container {
+  display: flex;
+}
+
+#createChef .inputBlock #photosUpload {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#createChef .inputBlock #photosUpload label {
+  white-space: nowrap;
+}
+
+/* CHEF EDIT PAGE - AVATAR CHEF UPLOAD */
+#editChef .inputBlock #photosUpload {
+  height: 40px;
+}
+
+#editChef .inputBlock #photosInput {
+  opacity: 1;
+  width: 100%;
+  height: 49px;
+  border: 1px solid #dddddd;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 4px;
+  outline-color: var(--admin-color);
+  font: 14px Roboto;
 }

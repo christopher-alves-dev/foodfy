@@ -7,7 +7,17 @@ legend {
   font-size: 20px;
   width: 100%;
   font-weight: bold;
+}
+
+fieldset .formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 25px;
+}
+
+fieldset .formHeader .btn {
+  white-space: nowrap;
 }
 
 .fields {

@@ -1,19 +1,24 @@
 const Chef = require("../models/Chef");
 
 module.exports = {
-  index(req, res) {
-    Chef.all(function(chefs) {
-      return res.render('user/chefs/index', { chefs })
-    })
+  async index(req, res) {
+    
+    const results = await Chef.all()
+    const chefs = results.rows
+
+    return res.render('user/chefs/index', { chefs })
 
   },
-  show(req, res) {
-    Chef.find(req.params.id, function(chef) {
-      if(!chef) return res.send("Chef not found!");
+  async show(req, res) {
+    
+    const results = await Chef.find(req.params.id) 
+    const chef = results.rows[0]
 
-      chef.created_at = Date(chef.created_at).format
+    if(!chef) return res.send("Chef not found!");
 
-      return res.render("user/chefs/chef", { chef })
-    })
+    chef.created_at = Date(chef.created_at).format
+
+    return res.render("user/chefs/chef", { chef })
+
   }
 }

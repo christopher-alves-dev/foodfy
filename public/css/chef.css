@@ -71,14 +71,33 @@
 
 
 /* === EDIT CHEF === */
+.editPage legend {
+  width: 60%;
+}
 .editPage .btnContainer {
   display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  margin: 0 auto;
+  align-items: center;
 }
 
-.editPage .btnContainer button:last-child {
-  margin-top: 20px;
+.editPage .btnContainer button:first-child {
   background-color: lightcoral;
+  margin-right: 10px;
 }
+
+@media (max-width: 479px) {
+  #deleteButton,
+  #editButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4px 8px;
+  }
+  
+  #deleteButton i,
+  #editButton i {
+    font-size: 20px;
+  }
+}
+
+
+

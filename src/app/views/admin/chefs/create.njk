@@ -11,17 +11,31 @@
   <section class="chefsList adminRecipe">
     <div class="formRecipe createPage">
       <fieldset>
-        <legend>Criando chef </legend>
+        <div class="formHeader">
+          <legend>Criando chef
+          </legend>
+          <button form="createChef" class="btn" type="submit">Salvar Chef</button>
+        </div>
         <form id="createChef" action="/admin/chefs" method="POST">
-        
-          {% include "admin/chefs/fields.njk" %}
-        
 
-          <div class="btnContainer">
-            <button class="btn" type="submit">Salvar chef</button>
+          <div class="inputBlock">
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" value="{{chef.name}}">
           </div>
+
+          <div class="inputBlock">
+            <label for="photos">Avatar</label>
+            <div class="container">
+              <div id="photosUpload">
+                <label class="btn" for="photos">Enviar Avatar</label>
+                <input type="file" name="photos" id="photosInput" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+              </div>
+              <div id="photosPreview"></div>
+            </div>
+          </div>
+
         </form>
       </fieldset>
     </div>
   </section>
-{% endblock%}
+  {% endblock%}
