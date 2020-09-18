@@ -68,16 +68,18 @@ if(buttonsAdd) {
 }
 
 //Delete button and Edit button
-const editBtn = document.querySelector('#editButton')
-const deleteBtn = document.querySelector('#deleteButton')
-const windowWidth = window.innerWidth;
-const responsive = 480;
-console.log(windowWidth)
+// const editBtn = document.querySelector('#editButton')
+// const deleteBtn = document.querySelector('#deleteButton')
+// const windowWidth = window.innerWidth;
+// const responsive = 480;
+// const editPage = 'chefs/edit'
 
-if(windowWidth >= responsive) {
-  deleteBtn.innerHTML = 'Deletar Chef'
-  editBtn.innerHTML = 'Salvar Chef'
-}
+// if(currentPage.includes(editPage)) {
+//   if(windowWidth >= responsive) {
+//     deleteBtn.innerHTML = 'Deletar Chef'
+//     editBtn.innerHTML = 'Salvar Chef'
+//   }
+// }
 
 
 const PhotosUpload = {
@@ -181,5 +183,31 @@ const PhotosUpload = {
     PhotosUpload.input.files = PhotosUpload.getAllFiles()
     
     photoDiv.remove()
+  },
+  removeOldPhoto(event) {
+    const photoDiv = event.target.parentNode
+
+    if(photoDiv) {
+      const removedFiles = document.querySelector('input[name="removedFiles"]')
+
+      if(removedFiles) {
+        removedFiles.value += `${photoDiv.id},`
+      }
+    }
+    return photoDiv.remove()
+  }
+}
+
+const ImageGallery = {
+  highlight: document.querySelector('.gallery .highlight > img'),
+  previews: document.querySelectorAll('.galleryPreview img'),
+  setImage(e) {
+    const { target } = e
+
+    ImageGallery.previews.forEach(preview => preview.classList.remove('active'))
+    target.classList.add('active')
+
+    ImageGallery.highlight.src = target.src
+
   }
 }

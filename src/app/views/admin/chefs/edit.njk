@@ -39,7 +39,16 @@
               <div id="photosUpload">
                 <input type="file" name="photos" id="photosInput" value="chef.name" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
               </div>
-              <div id="photosPreview"></div>
+              <div id="photosPreview">
+                {% if files %}
+                  {% for image in files %}
+                    <div class="photo" id="{{image.id}}">
+                      <img src="{{image.src}}" alt="{{image.name}}">
+                      <i class="material-icons">close</i>
+                    </div>
+                  {% endfor %}
+                {% endif%}
+              </div>
             </div>
           </div>
 
