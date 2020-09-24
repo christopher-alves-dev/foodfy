@@ -85,12 +85,13 @@ if(buttonsAdd) {
 const PhotosUpload = {
   input: '',
   preview: document.querySelector('#photosPreview'),
-  uploadLimit: 5,
+  uploadLimit: '',
   files: [],
-  handleFileInput(event) {
+  handleFileInput(event, uploadLimit) {
     //Ao clicar no input e selecionar os arquivos ele coloca como files dentro do input, então estamos extraindo ele e chamando de fileList, que é um construtor de SOMENTE LEITURA!
     const { files: fileList } = event.target
     PhotosUpload.input = event.target
+    PhotosUpload.uploadLimit = uploadLimit
     
     if(PhotosUpload.hasLimit(event)) return
 
@@ -187,7 +188,7 @@ const PhotosUpload = {
   removeOldPhoto(event) {
     const photoDiv = event.target.parentNode
 
-    if(photoDiv) {
+    if(photoDiv.id) {
       const removedFiles = document.querySelector('input[name="removedFiles"]')
 
       if(removedFiles) {

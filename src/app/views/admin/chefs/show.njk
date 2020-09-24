@@ -18,7 +18,9 @@
     </header>
 
     <div class="chefBanner">
-      <div class="avatar" style="background: no-repeat center / cover url({{chef.avatar_url}})"></div>
+      <div class="avatar" >
+        <img src="{{chef.file.src}}" alt="{{chef.name}}">
+      </div>
       <div class="content">
         <p>{{chef.name}} <br> <span>{{recipe.total_recipes}} {{'receitas' if recipe.total_recipes > 1 else 'receita'}}</span></p>
       </div>

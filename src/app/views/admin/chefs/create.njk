@@ -16,7 +16,7 @@
           </legend>
           <button form="createChef" class="btn" type="submit">Salvar Chef</button>
         </div>
-        <form id="createChef" action="/admin/chefs" method="POST">
+        <form id="createChef" action="/admin/chefs" method="POST" enctype="multipart/form-data">
 
           <div class="inputBlock">
             <label for="name">Nome</label>
@@ -28,9 +28,19 @@
             <div class="container">
               <div id="photosUpload">
                 <label class="btn" for="photos">Enviar Avatar</label>
-                <input type="file" name="photos" id="photosInput" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+                <input type="file" name="photos" id="photosInput" multiple="multiple" accept="image/*" {% if not file %} required="required" {% endif %} onchange="PhotosUpload.handleFileInput(event, 1)">
               </div>
-              <div id="photosPreview"></div>
+              <div id="photosPreview">
+                {% if file %}
+                  <div class="photo" id="{{file.id}}">
+                    <img src="{{file.src}}" alt="{{file.name}}">
+                    <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
+                  </div>
+
+                  <input type="hidden" name="removedFiles">
+                  <input type="hidden" name="file_id" value="{{file.id}}">
+                {% endif %}
+              </div>
             </div>
           </div>
 

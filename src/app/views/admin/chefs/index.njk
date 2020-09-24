@@ -14,8 +14,9 @@
 
     <div class="chefsCards">
       {% for chef in chefs %}
-        <div class="card">
-          <div class="cardImg" style="background: url({{chef.avatar_url}}) no-repeat center / cover">
+        <div class="card" data-id="{{chef.id}}">
+          <div class="cardImg">
+            <img src="{{chef.image}}" alt="">
           </div>
           <div class="cardContent">
             <p>{{chef.name}}

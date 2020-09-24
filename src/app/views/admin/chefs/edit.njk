@@ -26,7 +26,7 @@
             </button>
           </div>
         </div>
-        <form action="/admin/chefs?_method=PUT" method="POST" id="editChef">
+        <form action="/admin/chefs?_method=PUT" method="POST" id="editChef" enctype="multipart/form-data">
 
           <div class="inputBlock">
             <label for="name">Nome</label>
@@ -37,23 +37,23 @@
             <label for="photos">Avatar</label>
             <div class="container chefUpload">
               <div id="photosUpload">
-                <input type="file" name="photos" id="photosInput" value="chef.name" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+                <input type="file" name="photos" id="photosInput" multiple accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
               </div>
               <div id="photosPreview">
                 {% if files %}
                   {% for image in files %}
                     <div class="photo" id="{{image.id}}">
                       <img src="{{image.src}}" alt="{{image.name}}">
-                      <i class="material-icons">close</i>
+                      <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
                     </div>
                   {% endfor %}
+                  <input type="hidden" name="removedFiles">
                 {% endif%}
               </div>
             </div>
           </div>
 
           <input type="hidden" name="id" value="{{chef.id}}">
-
           
         </form>
         <form id="deleteForm" action="/admin/chefs?_method=DELETE" method="POST">

@@ -36,6 +36,9 @@ module.exports = {
   
     return db.query(query, values)
   },
+  chefsSelectOptions() {
+    return db.query(`SELECT name, id FROM chefs`)
+  },
   find(id) {
     return db.query(`
       SELECT recipes.*, chefs.name AS chef_name 
@@ -80,7 +83,10 @@ module.exports = {
   },
   files(id) {
     return db.query(`
-      SELECT * FROM files WHERE recipe_id = $1
+      SELECT recipe_files.*, files.name AS name, files.path AS path, files.id AS file_id
+      FROM recipe_files 
+      LEFT JOIN files ON (recipe_files.file_id = files.id)
+      WHERE recipe_files.recipe_id = $1
     `, [id])
   }
 }

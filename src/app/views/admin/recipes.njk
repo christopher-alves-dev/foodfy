@@ -19,7 +19,8 @@
     <div class="cards">
       {% for recipe in recipes %}
         <div class="card">
-          <div class="cardImg" style="background: url({{recipe.image}}) no-repeat center / cover">
+          <div class="cardImg">
+            <img src="{{recipe.image}}" alt="{{recipe.name}}">
           </div>
           <div class="cardContent">
             <p>{{recipe.title}} <br> 
