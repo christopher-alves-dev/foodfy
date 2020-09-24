@@ -31,20 +31,8 @@
         <h4>{{'Receitas' if recipes.length > 1 else 'Receita'}}</h4>
       </div>
 
-      <div class="cards">
-        {% for recipe in recipes %}
-          <div class="card">
-            <div class="cardImg" style="background: url({{recipe.image}}) no-repeat center / cover">
-            </div>
-            <div class="cardContent">
-              <p>{{recipe.title}} <br> 
-                <span>por {{recipe.chefs_name}}</span>
-              </p>
-              <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
+      {% include 'templates/includes/recipes-list.njk'%}
+
     </div>
   </section>
 {% endblock %}

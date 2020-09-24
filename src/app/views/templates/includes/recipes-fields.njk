@@ -1,4 +1,24 @@
-{% include "admin/parts/uploadRecipeFile.njk"%}
+<div class="inputBlock">
+  <label for="photos">Imagem da receita</label>
+  <div class="container">
+    <div id="photosUpload">
+      <input type="file" name="photos" id="photosInput" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+      <span class="material-icons">add</span>
+    </div>
+    <div id="photosPreview">
+      {% if files %}
+        {% for image in files %}
+          <div class="photo" id="{{image.id}}">
+            <img src="{{image.src}}" alt="{{image.name}}">
+            <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="removedFiles">
+        {% endif%}
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="inputBlock">
   <label for="title">Nome da receita</label>
@@ -10,17 +30,22 @@
   <div>
     <select name="chef">
       {% for chef in chefsOptions %}
-        <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {% endif %}>{{chef.name}}</option>
+        <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected="selected" {% endif %}>{{chef.name}}</option>
       {% endfor %}
     </select>
   </div>
-</div>  
+</div>
 
 <div class="inputBlock" id="recipeItems">
   <label>Ingredientes</label>
   <div class="fieldContainer">
     {% for ingredient in recipe.ingredients %}
       <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
+
+    {% else %}
+      <div class="ingredients">
+        <input type="text" name="ingredients[]" class="fieldInput" required="required">
+      </div>
     {% endfor %}
   </div>
   <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
@@ -31,6 +56,10 @@
   <div class="fieldContainer">
     {% for prep in recipe.preparation %}
       <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
+    {% else %}
+      <div class="steps">
+        <input type="text" name="preparation[]" class="fieldInput" required="required">
+      </div>
     {% endfor %}
   </div>
   <button type="button" id="addField" href="">Adicionar novo passo</button>

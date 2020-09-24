@@ -31,16 +31,19 @@ module.exports = {
 
       const allRecipes = await Promise.all(recipesPromise);
 
-      return res.render('admin/recipes', { recipes: allRecipes })
+      return res.render('admin/recipes/index', { recipes: allRecipes })
 
     }
 
   },
   async create(req, res) {
-    const results = await Recipe.chefsSelectOptions()
+    let results = await Recipe.find(req.params.id)
+    const recipe = results.rows[0]
+
+    results = await Recipe.chefsSelectOptions()
     const chefsOptions = results.rows
 
-    return res.render('admin/create', {chefsOptions})
+    return res.render('admin/recipes/create', { recipe, chefsOptions })
 
   },
   async post(req, res) {
@@ -89,7 +92,7 @@ module.exports = {
       src: `${req.protocol}://${req.headers.host}${file.path.replace('public','')}`
     }))
 
-    return res.render('admin/recipe', { recipe, files })
+    return res.render('admin/recipes/show', { recipe, files })
   },
   async edit(req, res) {
     let results = await Recipe.find(req.params.id)
@@ -109,7 +112,7 @@ module.exports = {
       src: `${req.protocol}://${req.headers.host}${file.path.replace('public','')}`
     }))
 
-    return res.render('admin/edit', { recipe, chefsOptions, files })
+    return res.render('admin/recipes/edit', { recipe, chefsOptions, files })
     
   },
   async put(req, res) {
@@ -168,7 +171,7 @@ module.exports = {
 
     await Recipe.delete(req.body.id)
 
-    return res.redirect(`/admin/recipes`)
+    return res.redirect(`/admin/recipes/index`)
 
   }
 }

@@ -1,0 +1,23 @@
+{% extends "admin/adminLayout.njk" %}
+
+{% block head %}
+  <title>Admin Foodfy</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+{% endblock %}
+
+{% block search %}
+  {% include 'searchField.njk'%}
+{% endblock %}
+
+{% block adminContent %}
+  <section class="recipesList">
+    <div class="listHeader">
+      <h4>Gerenciar receitas</h4>
+      <a href="/admin/recipes/create">Nova receita</a>
+    </div>
+
+    {% include 'templates/includes/recipes-list.njk'%}
+    
+  </section>
+    
+{% endblock %}
