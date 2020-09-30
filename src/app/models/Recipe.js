@@ -33,6 +33,8 @@ module.exports = {
       date(Date.now()).iso,
       data.chef
     ]
+
+    console.log(data.ingredients)
   
     return db.query(query, values)
   },
@@ -75,6 +77,9 @@ module.exports = {
       data.chef,
       data.id
     ]
+
+    console.log(data.ingredients)
+
 
     return db.query(query, values)
   },

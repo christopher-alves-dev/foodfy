@@ -12,14 +12,13 @@
     <div class="formRecipe">
       <fieldset>
         <legend>Editando receita</legend>
-        <form action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form class="fields" action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
 
           {% include 'templates/includes/recipes-fields.njk'%}
 
           <input type="hidden" name="id" value="{{recipe.id}}">
 
           <button class="btn" type="submit">Salvar receita</button>
-
         </form>
 
         <form action="/admin/recipes?_method=DELETE" method="POST">

@@ -17,16 +17,21 @@ if(openMenuBtn) {
   })
 }
 
-
 // === Menu active ===
 const currentPage = location.pathname;
 const menuItems = document.querySelectorAll('header .links a');
+const adminItems = document.querySelectorAll('header .linksAdmin a');
 for (item of menuItems) {
   if (currentPage.includes(item.getAttribute('href'))) {
     item.classList.add('active');
   }
 }
 
+for (item of adminItems) {
+  if (currentPage.includes(item.getAttribute('href'))) {
+    item.classList.add('active');
+  }
+}
 
 // === Recipe Wrapper ===
 const content = document.querySelectorAll('.recipeInfo .content');
@@ -46,8 +51,6 @@ for(let [i, button] of buttons.entries()) {
   });
 };
 
-// ===================================
-
 // === Add Field ===
 const buttonsAdd = document.querySelectorAll('#addField');
 
@@ -66,21 +69,6 @@ if(buttonsAdd) {
     return fieldContainer.appendChild(newFieldItem);
   }))
 }
-
-//Delete button and Edit button
-// const editBtn = document.querySelector('#editButton')
-// const deleteBtn = document.querySelector('#deleteButton')
-// const windowWidth = window.innerWidth;
-// const responsive = 480;
-// const editPage = 'chefs/edit'
-
-// if(currentPage.includes(editPage)) {
-//   if(windowWidth >= responsive) {
-//     deleteBtn.innerHTML = 'Deletar Chef'
-//     editBtn.innerHTML = 'Salvar Chef'
-//   }
-// }
-
 
 const PhotosUpload = {
   input: '',

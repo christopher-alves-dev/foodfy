@@ -15,7 +15,6 @@
         {% endfor %}
         <input type="hidden" name="removedFiles">
         {% endif%}
-      </div>
     </div>
   </div>
 </div>
@@ -39,14 +38,13 @@
 <div class="inputBlock" id="recipeItems">
   <label>Ingredientes</label>
   <div class="fieldContainer">
-    {% for ingredient in recipe.ingredients %}
-      <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
-
+    {% if recipe.ingredients %}
+      {% for ingredient in recipe.ingredients %}
+        <input type="text" name="ingredients[]" class="fieldInput" value="{{ingredient}}" placeholder="Insira novo ingrediente">
+      {% endfor %}
     {% else %}
-      <div class="ingredients">
-        <input type="text" name="ingredients[]" class="fieldInput" required="required">
-      </div>
-    {% endfor %}
+      <input type="text" name="ingredients[]" class="fieldInput" required="required">
+    {% endif %}
   </div>
   <button type="button" id="addField" href="">Adicionar novo ingrediente</button>
 </div>
@@ -54,13 +52,14 @@
 <div class="inputBlock" id="recipeItems">
   <label for="preparation">Modo de preparo</label>
   <div class="fieldContainer">
-    {% for prep in recipe.preparation %}
-      <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
+    {% if recipe.ingredients %}
+      {% for prep in recipe.preparation %}
+        <input type="text" name="preparation[]" class="fieldInput" value="{{prep}}" placeholder="Insira novo passo">
+      {% endfor %}
     {% else %}
-      <div class="steps">
-        <input type="text" name="preparation[]" class="fieldInput" required="required">
-      </div>
-    {% endfor %}
+      <input type="text" name="preparation[]" class="fieldInput" required="required">
+    {% endif %}
+   
   </div>
   <button type="button" id="addField" href="">Adicionar novo passo</button>
 </div>

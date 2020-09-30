@@ -1,56 +1,62 @@
 {% extends "user/layout.njk" %}
 
 {% block head %}
-  <title>Receita do {{recipe.title}}</title>
+  <title>Receita do
+    {{recipe.title}}</title>
+  <link rel="stylesheet" href="/css/recipe.css">
 {% endblock %}
 
 {% block content %}
-<div class="recipe">
-  <div class="container">
-    <div class="recipeBanner">
-      <div class="foodImg " style="background: url({{recipe.image}}) no-repeat center / cover">
-      </div>
-
-      <div class="title">
-        <p>{{recipe.title}} <br> <span>{{recipe.author}}</span></p>
-      </div>
-    </div>
-
-    <div class="recipeContent">
-      <div class="recipeInfo">
-        <div class="recipeInfoTitle">
-          <h3>Ingredientes</h3>
-          <a class="button">esconder</a>
-        </div>
-        <ul class="content show">
-          {% for dishe in recipe.ingredients %}
-            <li>{{dishe}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="recipeInfo">
-        <div class="recipeInfoTitle">
-          <h3>Modo de preparo</h3>
-          <a class="button">esconder</a>
-        </div>
-        <ul class="content show">
-          {% for dishe in recipe.preparation %}
-            <li>{{dishe}}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="recipeInfo">
-        <div class="recipeInfoTitle">
-          <h3>Informações adicionais</h3>
-          <a class="button">esconder</a>
+  <div class="recipe userRecipe">
+    <div class="container">
+      <div class="recipeBanner">
+        <div class="foodImg">
+          <img src="{{files[0].src}}" alt="{{files[0].name}}">
         </div>
 
-        <p class="content show">{{recipe.information}}</p>
+        <div class="title">
+          <p>{{recipe.title}}
+            <br>
+            <span>por
+              {{recipe.chef_name}}</span></p>
+        </div>
+      </div>
+
+      <div class="recipeContent">
+        <div class="recipeInfo">
+          <div class="recipeInfoTitle">
+            <h3>Ingredientes</h3>
+            <a class="button">esconder</a>
+          </div>
+          <ul class="content show">
+            {% for ingredient in recipe.ingredients %}
+              <li>{{ingredient}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="recipeInfo">
+          <div class="recipeInfoTitle">
+            <h3>Modo de preparo</h3>
+            <a class="button">esconder</a>
+          </div>
+          <ul class="content show">
+            {% for prep in recipe.preparation %}
+              <li>{{prep}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="recipeInfo">
+          <div class="recipeInfoTitle">
+            <h3>Informações adicionais</h3>
+            <a class="button">esconder</a>
+          </div>
+
+          <p class="content show">{{recipe.information}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 {% endblock %}

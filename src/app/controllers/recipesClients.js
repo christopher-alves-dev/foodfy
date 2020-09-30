@@ -6,7 +6,21 @@ module.exports = {
     const results = await Recipe.all()
     const recipes = results.rows
 
-    return res.render('user/about', { recipes })
+    async function getImage(recipeId) {
+      let results = await Recipe.files(recipeId);
+      const file = results.rows[0];
+
+      return `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`;
+    }
+
+    const recipesPromise = recipes.map(async recipe => {
+      recipe.image = await getImage(recipe.id);
+      return recipe;
+    })
+
+    const allRecipes = await Promise.all(recipesPromise);
+
+    return res.render('user/about', { recipes: allRecipes })
 
   },
   async index(req, res) {
@@ -24,22 +38,41 @@ module.exports = {
       const results = await Recipe.all()
       const recipes = results.rows
 
-      return res.render('user/recipes/index', { recipes })
+      async function getImage(recipeId) {
+        let results = await Recipe.files(recipeId);
+        const file = results.rows[0];
+  
+        return `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`;
+      }
+  
+      const recipesPromise = recipes.map(async recipe => {
+        recipe.image = await getImage(recipe.id);
+        return recipe;
+      })
+  
+      const allRecipes = await Promise.all(recipesPromise);
+
+      return res.render('user/recipes/index', { recipes: allRecipes })
 
     }
 
   },
   async show(req, res) {
     
-    const results = await Recipe.find(req.params.id)
+    let results = await Recipe.find(req.params.id)
     const recipe = results.rows[0]
 
     if(!recipe) return res.send("Recipe not found!");
 
     recipe.created_at = Date(recipe.created_at).format
     
+    results = await Recipe.files(recipe.id)
+    const files = results.rows.map(file => ({
+      ...file,
+      src: `${req.protocol}://${req.headers.host}${file.path.replace('public','')}`
+    }))
 
-    return res.render("user/recipes/recipe", { recipe })
+    return res.render("user/recipes/recipe", { recipe, files })
 
   },
   history(req, res) {

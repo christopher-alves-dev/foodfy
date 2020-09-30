@@ -1,5 +1,4 @@
 @import "history.css";
-@import "recipe.css";
 
 :root {
   --primary-txt-color: #111111;
@@ -30,7 +29,7 @@ footer {
 }
 
 .active {
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -289,13 +288,13 @@ main .container .recipes .recipeCard:hover {
 
 main .container .recipes .recipeCard .cardImg {
   width: 100%;
-  height: 70%;
-  max-height: 89.36px;
+  height: 140px;
 }
 
 main .container .recipes .recipeCard .cardImg img {
   display: block;
   width: 100%;
+  height: 100%;
   border-radius: 15px 15px 0 0;
 }
 
@@ -341,6 +340,9 @@ main .container .recipes .recipeCard .cardContent a {
     grid-template-rows: auto auto
   }
 }
+
+
+
 
 /* === FOOTER === */
 footer {

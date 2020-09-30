@@ -24,28 +24,28 @@
           </div>
 
           <div class="inputBlock">
-            <label for="photos">Avatar</label>
+            <label for="photos">Enviar Avatar</label>
             <div class="container">
               <div id="photosUpload">
-                <label class="btn" for="photos">Enviar Avatar</label>
-                <input type="file" name="photos" id="photosInput" multiple="multiple" accept="image/*" {% if not file %} required="required" {% endif %} onchange="PhotosUpload.handleFileInput(event, 1)">
+                <input type="file" name="photos" id="photosInput" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+                <span class="material-icons">add</span>
               </div>
               <div id="photosPreview">
-                {% if file %}
-                  <div class="photo" id="{{file.id}}">
-                    <img src="{{file.src}}" alt="{{file.name}}">
-                    <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
-                  </div>
-
+                {% if files %}
+                  {% for image in files %}
+                    <div class="photo" id="{{image.id}}">
+                      <img src="{{image.src}}" alt="{{image.name}}">
+                      <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
+                    </div>
+                  {% endfor %}
                   <input type="hidden" name="removedFiles">
-                  <input type="hidden" name="file_id" value="{{file.id}}">
-                {% endif %}
+                  {% endif%}
+                </div>
               </div>
             </div>
-          </div>
 
-        </form>
-      </fieldset>
-    </div>
-  </section>
-  {% endblock%}
+          </form>
+        </fieldset>
+      </div>
+    </section>
+    {% endblock%}
