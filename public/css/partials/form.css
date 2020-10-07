@@ -5,7 +5,7 @@ fieldset {
 
 legend {
   font-size: 20px;
-  width: 100%;
+  /* width: 100%; */
   font-weight: bold;
 }
 

@@ -1,0 +1,59 @@
+.container {
+  max-width: 940px;
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.container .formHeader {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0;
+}
+
+.container .formHeader .formHeaderButtons {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.container .formHeader .formHeaderButtons button:last-child {
+  margin-left: 16px;
+}
+
+.inputBlock.checkBlock {
+  display: flex;
+  align-items: center;
+}
+
+.inputBlock.checkBlock input{
+  all: unset;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}
+
+.inputBlock.checkBlock input:checked {
+  background-color: var(--admin-color);
+}
+
+@media (min-width: 480px) {
+  .container .formHeader {
+    flex-direction: initial;
+    align-items: center;
+  }
+
+  .container .formHeader .formHeaderButtons {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  #user-register {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+  }
+}

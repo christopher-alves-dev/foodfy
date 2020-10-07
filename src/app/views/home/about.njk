@@ -1,7 +1,8 @@
-{% extends "user/layout.njk" %}
+{% extends "home/layout.njk" %}
 
 {% block head %}
-  <title>FoodFy - Lista de Receitas</title>
+  <title>FoodFy - As melhores receitas </title>
+  <link rel="stylesheet" href="/css/style.css">
 {% endblock %}
 
 {% block search %}
@@ -9,8 +10,25 @@
 {% endblock %}
 
 {% block content %}
+  <section class="banner">
+    <div class="container">
+      <div class="bannerContent">
+        <h3>As melhores receitas</h3>
+        <p>Aprenda a construir os melhores pratos
+          com receitas criadas por profissionais
+          do mundo inteiro.</p>
+      </div>
+
+      <div class="bannerImg">
+        <img src="/images/Chef.png" alt="Chef's Cartoon">
+      </div>
+    </div>
+  </section>
+
   <main>
     <div class="container">
+      <h4>Mais acessadas</h4>
+
       <div class="recipes">
         {% for recipe in recipes %}
           <div class="recipeCard" id="{{recipes.indexOf(recipe)}}">
@@ -20,12 +38,12 @@
             <div class="cardContent">
               <p>{{recipe.title}}
                 <br>
-                <span>{{recipe.chef_name}}</span>
-              </p>
+                <span>por {{recipe.chef_name}}</span></p>
               <a href="/recipes/{{recipe.id}}">Ver</a>
             </div>
           </div>
         {% endfor %}
+
       </div>
     </div>
   </main>

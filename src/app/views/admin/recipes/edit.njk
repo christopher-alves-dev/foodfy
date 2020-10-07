@@ -11,7 +11,7 @@
         <legend>Editando receita</legend>
         <form class="fields" action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
 
-          {% include 'templates/includes/recipes-fields.njk'%}
+          {% include 'admin/templates/includes/recipes-fields.njk'%}
 
           <input type="hidden" name="id" value="{{recipe.id}}">
 

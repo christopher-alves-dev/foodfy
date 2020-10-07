@@ -22,8 +22,6 @@ routes.get('/recipes/:id', homeRecipesController.show);
 routes.get('/chefs', homeChefsController.index);
 routes.get('/chefs/:id', homeChefsController.show);
 
-
-
 routes.use(function(req, res) {
   res.status(404).render('not-found');
 })

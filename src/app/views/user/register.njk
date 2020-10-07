@@ -1,0 +1,46 @@
+{% extends "admin/adminLayout.njk" %}
+
+{% block head %}
+  <title>Foodfy Admin - Criando receita</title>
+{% endblock %}
+
+{% block adminContent %}
+  <section class="userRegister container form">
+    <fieldset>
+      <div class="formHeader">
+        <legend>Registre-se</legend>
+        <div class="formHeaderButtons">
+          <button form="user-register" class="btn primary" type="submit">Salvar</button>
+          <button form="delete-user-register" class="btn cancel" type="submit">Cancelar</button>
+        </div>
+      </div>
+      
+      <form id="user-register" action="/users/register" method="POST">
+
+        <div class="inputBlock">
+          <label for="name">Nome</label>
+          <input type="text" name="name" placeholder="Digite o nome completo" value="{{user.name}}">
+        </div>
+
+        <div class="inputBlock">
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Digite o email" value="{{user.email}}">
+        </div>
+
+        <div class="inputBlock checkBlock">
+          <input type="checkbox" name="check">
+          <label for="check">Administrador</label>
+        </div>
+
+      </form>
+
+      <form id="delete-user-register" action="/users/register?_method=DELETE" method="POST">
+      </form>
+
+    </fieldset>
+  </section>
+{% endblock%}
+
+{% block scripts %}
+  <script src="../../js/script.js"></script>
+{% endblock %}

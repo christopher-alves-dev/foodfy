@@ -1,4 +1,4 @@
-const Recipe = require("../models/Recipe");
+const Recipe = require('../models/Recipe');
 
 module.exports = {
   async about(req, res) {
@@ -20,7 +20,7 @@ module.exports = {
 
     const allRecipes = await Promise.all(recipesPromise);
 
-    return res.render('user/about', { recipes: allRecipes })
+    return res.render('home/about', { recipes: allRecipes })
 
   },
   async index(req, res) {
@@ -52,7 +52,7 @@ module.exports = {
   
       const allRecipes = await Promise.all(recipesPromise);
 
-      return res.render('user/recipes/index', { recipes: allRecipes })
+      return res.render('home/recipes/index', { recipes: allRecipes })
 
     }
 
@@ -62,7 +62,7 @@ module.exports = {
     let results = await Recipe.find(req.params.id)
     const recipe = results.rows[0]
 
-    if(!recipe) return res.send("Recipe not found!");
+    if(!recipe) return res.send('Recipe not found!');
 
     recipe.created_at = Date(recipe.created_at).format
     
@@ -72,10 +72,10 @@ module.exports = {
       src: `${req.protocol}://${req.headers.host}${file.path.replace('public','')}`
     }))
 
-    return res.render("user/recipes/recipe", { recipe, files })
+    return res.render('home/recipes/recipe', { recipe, files })
 
   },
   history(req, res) {
-    return res.render("user/history")
+    return res.render('home/history')
   }
 }
