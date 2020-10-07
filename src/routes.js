@@ -5,17 +5,23 @@ const recipesClients = require('./app/controllers/recipesClients');
 const chefsClients = require('./app/controllers/chefsClients')
 const recipes = require('./app/controllers/recipes');
 const chefs = require('./app/controllers/chefs');
+const SearchController = require('./app/controllers/SearchController')
 
+//HOME
 routes.get('/', recipesClients.about);
 routes.get('/history', recipesClients.history );
 
-//SITE RECIPES
+//USER RECIPES
 routes.get('/recipes', recipesClients.index);
 routes.get('/recipes/:id', recipesClients.show);
 
-//SITE CHEFS
+//USER CHEFS
 routes.get('/chefs', chefsClients.index);
 routes.get('/chefs/:id', chefsClients.show);
+
+//ADMIN SEARCH
+routes.get('/admin/search', SearchController.index);
+
 
 //ADMIN RECIPES
 routes.get('/admin/recipes', recipes.index); // Mostrar a lista de receitas

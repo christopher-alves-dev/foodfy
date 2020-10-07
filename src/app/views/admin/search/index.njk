@@ -1,0 +1,16 @@
+{% extends "admin/adminLayout.njk" %}
+{% import "templates/macros/searchList.njk" as section %}
+{% block head %}
+  <title>Admin Foodfy - Search</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+{% endblock %}
+
+{% block search %}
+  {% include 'searchField.njk'%}
+{% endblock %}
+
+{% block adminContent %}
+  
+  {{section.recipes('Resultados da pesquisa', '', recipes)}}
+    
+{% endblock %}

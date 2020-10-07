@@ -1,8 +1,21 @@
+CREATE TABLE "recipes" (
+  "id" SERIAL PRIMARY KEY,
+  "chef_id" int,
+  "user_id" int,
+  "title" text,
+  "ingredients" text[],
+  "preparation" text[],
+  "information" text,
+  "created_at" timestamp DEFAULT (now()),
+  "updated_at" timestamp DEFAULT (now())
+);
+
 CREATE TABLE "chefs" (
   "id" SERIAL PRIMARY KEY,
   "name" text,
-  "avatar_url" text,
-  "created_at" timestamp
+  "file_id" int,
+  "created_at" timestamp DEFAULT (now()),
+  "updated_at" timestamp DEFAULT (now())
 );
 
 CREATE TABLE "files" (
@@ -17,19 +30,47 @@ CREATE TABLE "recipe_files" (
   "file_id" int
 );
 
-CREATE TABLE "recipes" (
+CREATE TABLE "users" (
   "id" SERIAL PRIMARY KEY,
-  "image" text,
-  "title" text,
-  "ingredients" text[],
-  "preparation" text[],
-  "information" text,
-  "created_at" timestamp,
-  "chef_id" int
+  "name" text NOT NULL,
+  "email" text UNIQUE NOT NULL,
+  "password" text NOT NULL,
+  "reset_token" text,
+  "reset_token_expires" text,
+  "is_admin" boolean DEFAULT false,
+  "created_at" timestamp DEFAULT (now()),
+  "updated_at" timestamp DEFAULT (now())
 );
 
-ALTER TABLE "recipes" ADD FOREIGN KEY ("chef_id") REFERENCES "chefs" ("id");
 
+ALTER TABLE "recipes" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+ALTER TABLE "chefs" ADD FOREIGN KEY ("file_id") REFERENCES "files" ("id");
 ALTER TABLE "recipe_files" ADD FOREIGN KEY ("recipe_id") REFERENCES "recipes" ("id");
-
 ALTER TABLE "recipe_files" ADD FOREIGN KEY ("file_id") REFERENCES "files" ("id");
+
+
+CREATE FUNCTION trigger_set_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+	NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON recipes
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON chefs
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON users
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();

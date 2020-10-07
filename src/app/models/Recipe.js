@@ -8,7 +8,7 @@ module.exports = {
       SELECT recipes.*, chefs.name AS chef_name 
       FROM recipes
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-      ORDER BY recipes.title ASC
+      ORDER BY recipes.created_at DESC
     `)
 
   },
@@ -19,9 +19,8 @@ module.exports = {
         ingredients,
         preparation,
         information,
-        created_at,
         chef_id
-      ) VALUES ($1, $2, $3, $4, $5, $6)
+      ) VALUES ($1, $2, $3, $4, $5)
       RETURNING id
     `
 
@@ -30,11 +29,8 @@ module.exports = {
       data.ingredients,
       data.preparation,
       data.information,
-      date(Date.now()).iso,
       data.chef
     ]
-
-    console.log(data.ingredients)
   
     return db.query(query, values)
   },
@@ -48,13 +44,15 @@ module.exports = {
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
       WHERE recipes.id = $1`, [id])
   },
-  findBy(filter) {
+  findBy(params) {
+    const { filter } = params
+
     return db.query(`
       SELECT recipes.*, chefs.name AS chef_name 
       FROM recipes
       LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
       WHERE recipes.title ILIKE '%${filter}%'
-      ORDER BY recipes.title ASC
+      ORDER BY recipes.updated_at DESC
     `)
   },
   update(data) {
@@ -64,22 +62,17 @@ module.exports = {
         ingredients=($2),
         preparation=($3),
         information=($4),
-        created_at=($5),
-        chef_id=($6)
-      WHERE id = $7`
+        chef_id=($5)
+      WHERE id = $6`
 
     const values = [
       data.title,
       data.ingredients,
       data.preparation,
       data.information,
-      data.created_at,
       data.chef,
       data.id
     ]
-
-    console.log(data.ingredients)
-
 
     return db.query(query, values)
   },

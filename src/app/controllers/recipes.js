@@ -5,35 +5,49 @@ const RecipeFile = require('../models/RecipeFile');
 module.exports = {
   async index(req, res) {
     try {
-      const { filter } = req.query
+      const results = await Recipe.all()
+      const recipes = results.rows
 
-      if (filter) {
-        const results = await Recipe.findBy(filter)
-        const recipes = results.rows
-  
-        return res.render('admin/recipes', { recipes, filter })
-  
-      } else {
-        const results = await Recipe.all()
-        const recipes = results.rows
-  
-        async function getImage(recipeId) {
-          let results = await Recipe.files(recipeId);
-          const file = results.rows[0];
-  
-          return `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`;
-        }
-  
-        const recipesPromise = recipes.map(async recipe => {
-          recipe.image = await getImage(recipe.id);
-          return recipe;
-        })
-  
-        const allRecipes = await Promise.all(recipesPromise);
-  
-        return res.render('admin/recipes/index', { recipes: allRecipes })
-  
+      async function getImage(recipeId) {
+        let results = await Recipe.files(recipeId);
+        const file = results.rows[0];
+
+        return `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`;
       }
+
+      const recipesPromise = recipes.map(async recipe => {
+        recipe.image = await getImage(recipe.id);
+        return recipe;
+      })
+
+      const allRecipes = await Promise.all(recipesPromise);
+
+      return res.render('admin/recipes/index', { recipes: allRecipes })
+
+      // if (filter) {
+      //   const results = await Recipe.findBy(filter)
+      //   const recipes = results.rows
+        
+      //   async function getImage(recipeId) {
+      //     let results = await Recipe.files(recipeId);
+      //     const file = results.rows[0];
+  
+      //     return `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`;
+      //   }
+
+      //   const recipesPromise = recipes.map(async recipe => {
+      //     recipe.image = await getImage(recipe.id);
+      //     return recipe;
+      //   })
+  
+      //   const allRecipes = await Promise.all(recipesPromise);
+
+      //   return res.render('admin/recipes/index', { recipes: allRecipes, filter })
+  
+      // } else {
+        
+  
+      // }
     } catch (err) {
       console.error(err)
     }
@@ -98,8 +112,6 @@ module.exports = {
   
       if (!recipe) return res.send('Recipe not found!');
   
-      recipe.created_at = Date(recipe.created_at).format
-  
       results = await Recipe.files(recipe.id)
       const files = results.rows.map(file => ({
         ...file,
@@ -119,9 +131,7 @@ module.exports = {
       const recipe = results.rows[0]
   
       if (!recipe) return res.send('Recipe not found!');
-  
-      recipe.created_at = Date(recipe.created_at).format
-  
+   
       results = await Recipe.chefsSelectOptions()
       const chefsOptions = results.rows
   
