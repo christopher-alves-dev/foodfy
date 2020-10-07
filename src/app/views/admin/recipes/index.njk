@@ -2,7 +2,6 @@
 
 {% block head %}
   <title>Admin Foodfy</title>
-  <link rel="stylesheet" href="/css/adminStyle.css">
 {% endblock %}
 
 {% block search %}
@@ -16,7 +15,7 @@
       <a href="/admin/recipes/create">Nova receita</a>
     </div>
 
-    {% include 'templates/includes/recipes-list.njk'%}
+    {% include 'admin/templates/includes/recipes-list.njk'%}
     
   </section>
     

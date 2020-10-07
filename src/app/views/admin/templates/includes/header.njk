@@ -1,0 +1,19 @@
+<header class="adminHeader">
+  <div class="container">
+    <div class="logo">
+      <h1>
+        <a href="/admin/recipes">
+          <img src="/images/logo-white.png" alt="Foodfy logo">
+        </a>
+      </h1>
+    </div>
+    <div class="navMenu">
+      <nav class="linksAdmin">
+        <a href="/admin/recipes">Receitas</a>
+        <a href="/admin/chefs">Chefs</a>
+      </nav>
+      {% block search %}
+      {% endblock %}
+    </div>
+  </div>
+</header>

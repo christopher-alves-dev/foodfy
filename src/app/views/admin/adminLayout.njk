@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/recipe.css">
+
+  {% include 'admin/templates/includes/styles.njk'%}
   
   {% block head %}
     <title>FoodFy</title>
@@ -15,25 +12,7 @@
   
 </head>
 <body>
-  <header class="adminHeader">
-    <div class="container">
-      <div class="logo">
-        <h1>
-          <a href="/admin/recipes">
-            <img src="/images/logo-white.png" alt="Foodfy logo">
-          </a>
-        </h1>
-      </div>
-      <div class="navMenu">
-        <nav class="linksAdmin">
-          <a href="/admin/recipes">Receitas</a>
-          <a href="/admin/chefs">Chefs</a>
-        </nav>
-        {% block search %}
-        {% endblock %}
-      </div>
-    </div>
-  </header>
+  {% include 'admin/templates/includes/header.njk'%}
 
   {% block adminContent %}
   {% endblock %}
